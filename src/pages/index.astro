@@ -1,16 +1,56 @@
 ---
-
+import BaseLayout from "../layouts/BaseLayout.astro";
+import SideLayout from "../layouts/SideLayout.astro";
+const pageTitle = "Home Page";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout pageTitle={pageTitle}>
+  <h1 class="pt-4 pb-1 font-title font-bold text-2xl">A new beginning</h1>
+  <div class="bg-sky-800 p-0.5 w-1/8"></div>
+  <h2 class="pt-6 font-title font-bold">A subtitle</h2>
+  <p class="p-4 font-serif">
+    or years, Warner Bros. Discovery has been playing a desperate game of
+    catchup in hopes of recreating the success that Marvel achieved with its
+    live action comics adaptations. DC movies had their moments, but they never
+    managed to come together in a way that felt right or intentional. And for a
+    long time, it seemed like WBD simply did not know how to pull itself out of
+    a very expensive and artistically hollow downward spiral.
+    <p class="p-6 font-serif">
+      Things got so bad that the studio eventually pulled the plug on the entire
+      enterprise and decided to start over with a new cinematic universe crafted
+      by James Gunn and Peter Safran. It felt like a risky bet both because of
+      WBD’s track record and the public’s waning interest in superheroes. But as
+      iffy as WBD’s bet on Gunn seemed at first, his new Superman film is a
+      shining example of what all the studio is capable of when the right
+      creatives are in charge.
+    </p>
+    <h2 class="pt-4 font-title font-bold">Something else</h2>
+    <p class="p-4 font-serif">
+      Like most great comic books, the new Superman movie is as big as it is
+      simple. It assumes you know most of the basics about its titular hero, but
+      knows that there are weird little pieces of his lore you probably aren’t
+      familiar with and will be delighted to learn about. Even though it hits a
+      lot of the same beats as previous Superman movies, it does so with a slick
+      panache that feels wholly different from the kind of storytelling that WBD
+      has been doing over the past few years. It feels like the sort of movie
+      that the studio should have led with from the jump — one that’s romantic,
+      and a little silly when it needs to be. And its message about how
+      immigrants are what makes the United States a beautiful vibrant place
+      could not come at a more appropriate time.
+    </p>
+    <p class="p-4 font-serif">
+      Though Superman (David Corenswet) is a known quantity in this world who
+      has been saving people from disasters for a bit of time, very few people
+      know that he is also bumbling journalist Clark Kent. There are a couple of
+      clever reasons that most folks don’t recognize Clark when he takes off his
+      glasses. But the duality of his identity is something that Daily Planet
+      reporter Lois Lane (Rachel Brosnahan) understands well. Clark and Lois’
+      colleagues Perry White (Wendell Pierce) and Jimmy Olsen (Skyler Gisondo)
+      can kind of smell the Superman charade as well. But with Metropolis
+      constantly being attacked by aliens and monsters, the people in Clark’s
+      life – aside from Lois – don’t really have the mental bandwidth to put two
+      and two together to realize that he’s a superpowered man from another
+      planet.
+    </p>
+  </p>
+</BaseLayout>

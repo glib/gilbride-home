@@ -1,0 +1,16 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+import Prose from "../components/Prose.astro";
+const { frontmatter } = Astro.props;
+---
+
+<BaseLayout pageTitle={frontmatter.title}>
+  <h1 class="pt-4 pb-1 font-title font-bold text-2xl">{frontmatter.title}</h1>
+  <h3 class="pb-3 font-title italic">{frontmatter.pubDate}</h3>
+  <div class="bg-sky-800 p-0.5 w-1/8"></div>
+  <!-- <h2 class="pt-6 font-title font-bold">A subtitle</h2> -->
+  <div class="p-4">
+    <img src={frontmatter.image.url} width="300" alt={frontmatter.image.alt} />
+  </div>
+  <slot />
+</BaseLayout>
