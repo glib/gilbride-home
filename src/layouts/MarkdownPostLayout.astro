@@ -5,12 +5,44 @@ const { frontmatter } = Astro.props;
 ---
 
 <BaseLayout pageTitle={frontmatter.title}>
-  <h1 class="pt-4 pb-1 font-title font-bold text-2xl">{frontmatter.title}</h1>
-  <h3 class="pb-3 font-title italic">{frontmatter.pubDate}</h3>
-  <div class="bg-sky-800 p-0.5 w-1/8"></div>
-  <!-- <h2 class="pt-6 font-title font-bold">A subtitle</h2> -->
-  <div class="p-4">
-    <img src={frontmatter.image.url} width="300" alt={frontmatter.image.alt} />
+  <div class="pb-10">
+    <h1 class="pt-4 pb-1 font-title font-semibold text-2xl">
+      {frontmatter.title}
+    </h1>
+    <h3 class="pb-3 font-title italic">
+      {frontmatter.pubDate.toString().slice(0, 10)}
+    </h3>
+    <div class="bg-sky-800 p-0.5 w-1/8"></div>
+    <!-- <h2 class="pt-6 font-title font-bold">A subtitle</h2> -->
+    {
+      frontmatter.image && (
+        <div class="p-4">
+          <img
+            src={frontmatter.image.url}
+            width="300"
+            alt={frontmatter.image.alt}
+          />
+        </div>
+      )
+    }
   </div>
   <slot />
 </BaseLayout>
+
+<style is:global>
+  @reference "../styles/global.css";
+  h1 {
+    @apply pt-4 pb-1 font-title font-bold text-2xl;
+  }
+  h2 {
+    @apply py-4 font-title font-bold;
+  }
+  p {
+    @apply pb-6 font-sans;
+  }
+  blockquote {
+    @apply font-title font-semibold italic;
+  }
+</style>
+}
+
