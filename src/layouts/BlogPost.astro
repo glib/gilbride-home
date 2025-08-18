@@ -24,21 +24,61 @@ const { title, description, pubDate, updatedDate, heroImage, youtubeId, tags = [
 ---
 
 <BaseLayout title={title} description={description} image={heroImage}>
-  <nav class="bg-white border-b border-gray-200 sticky top-0 z-10">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+  <nav class="bg-slate-900 border-b border-slate-700 sticky top-0 z-10">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between items-center py-4">
-        <a href="/" class="text-lg sm:text-xl font-heading font-bold text-gray-900 hover:text-blue-600 transition-colors">
-          Work From Loam
-        </a>
+        <div class="flex items-center gap-2 sm:gap-3">
+          <svg class="w-12 h-12 sm:w-16 sm:h-16 text-emerald-400" fill="currentColor" viewBox="0 0 32 24">
+            <!-- Laptop mountain base -->
+            <path d="M4 14 L16 6 L28 14 L26 18 L6 18 Z" fill="currentColor" opacity="0.3"/>
+            <!-- Laptop screen (folded down) -->
+            <rect x="8" y="16" width="16" height="2" rx="1" fill="currentColor" opacity="0.5"/>
+            <!-- Laptop keyboard area -->
+            <rect x="10" y="18" width="12" height="1" rx="0.5" fill="currentColor" opacity="0.4"/>
+            
+            <!-- Mountain bike -->
+            <!-- Rear wheel -->
+            <circle cx="8" cy="12" r="2.5" fill="none" stroke="currentColor" stroke-width="0.8"/>
+            <circle cx="8" cy="12" r="0.3" fill="currentColor"/>
+            <!-- Front wheel -->
+            <circle cx="20" cy="12" r="2.5" fill="none" stroke="currentColor" stroke-width="0.8"/>
+            <circle cx="20" cy="12" r="0.3" fill="currentColor"/>
+            
+            <!-- Bike frame -->
+            <path d="M8 12 L12 8 L16 8 L20 12" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+            <path d="M8 12 L12 8 L8 8" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+            <path d="M16 8 L18 10 L20 12" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+            
+            <!-- Handlebars -->
+            <path d="M15 7 L17 7" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+            <!-- Seat -->
+            <path d="M10 7 L12 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            
+            <!-- Rider (simple) -->
+            <circle cx="13" cy="6" r="1" fill="currentColor" opacity="0.8"/>
+            <path d="M13 7 L13 9" stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
+          </svg>
+          <div>
+            <h1 class="text-lg sm:text-xl lg:text-2xl font-heading font-bold text-emerald-300">Work From Loam</h1>
+            <p class="text-xs sm:text-sm text-slate-400 mt-1">Remote Work, Code & Mountain Biking</p>
+          </div>
+        </div>
         <div class="flex space-x-3 sm:space-x-6">
-          <a href="/" class="text-gray-600 hover:text-gray-900 transition-colors font-medium text-sm sm:text-base">Posts</a>
-          <a href="/about" class="text-gray-600 hover:text-gray-900 transition-colors font-medium text-sm sm:text-base">About</a>
+          <a href="/" class="text-emerald-300 font-medium text-sm sm:text-base">Posts</a>
+          <a href="/about" class="text-slate-300 hover:text-emerald-400 transition-colors font-medium text-sm sm:text-base">About</a>
+          <a href="https://youtube.com/@workfromloam" target="_blank" rel="noopener" class="text-slate-300 hover:text-emerald-400 transition-colors font-medium flex items-center gap-1 text-sm sm:text-base">
+            <svg class="w-3 h-3 sm:w-4 sm:h-4" viewBox="0 0 24 24">
+              <path fill="#FF0000" d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814z"/>
+              <path fill="#FFFFFF" d="M9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+            </svg>
+            <span class="hidden sm:inline">YouTube</span>
+          </a>
         </div>
       </div>
     </div>
   </nav>
 
-  <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
     <article>
       <header class="mb-8">
         {youtubeId && (
@@ -62,11 +102,11 @@ const { title, description, pubDate, updatedDate, heroImage, youtubeId, tags = [
           />
         )}
         
-        <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-gray-900 mb-4 leading-tight" style="letter-spacing: -0.02em;">
+        <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-slate-100 mb-4 leading-tight" style="letter-spacing: -0.02em;">
           {title}
         </h1>
         
-        <div class="flex flex-wrap items-center gap-2 sm:gap-4 text-xs sm:text-sm text-gray-600 mb-6">
+        <div class="flex items-center gap-3 text-xs sm:text-sm text-slate-400 mb-6">
           <time datetime={pubDate.toISOString()}>
             {formatDate(pubDate)}
           </time>
@@ -75,30 +115,29 @@ const { title, description, pubDate, updatedDate, heroImage, youtubeId, tags = [
               · Updated {formatDate(updatedDate)}
             </span>
           )}
+          {tags.length > 0 && (
+            <>
+              <span>•</span>
+              <div class="flex flex-wrap gap-1">
+                {tags.map((tag) => (
+                  <span class="text-orange-400 text-xs font-medium">
+                    #{tag}
+                  </span>
+                ))}
+              </div>
+            </>
+          )}
         </div>
-        
-        {tags.length > 0 && (
-          <div class="flex flex-wrap gap-2 mb-6">
-            {tags.map((tag) => (
-              <a
-                href={`/tags/${tag}`}
-                class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800 hover:bg-blue-200 transition-colors"
-              >
-                #{tag}
-              </a>
-            ))}
-          </div>
-        )}
       </header>
 
-      <div class="prose prose-lg prose-gray max-w-none">
+      <div class="text-slate-300 text-lg leading-relaxed prose prose-lg prose-invert max-w-none prose-headings:text-slate-100 prose-headings:font-heading prose-a:text-emerald-400 prose-a:no-underline hover:prose-a:text-emerald-300 prose-code:text-slate-200 prose-code:bg-orange-900/30 prose-code:px-1 prose-code:py-0.5 prose-code:rounded prose-pre:bg-slate-900 prose-pre:text-slate-100">
         <slot />
       </div>
     </article>
 
     <!-- Comments Section -->
-    <section class="mt-16 border-t border-gray-200 pt-8">
-      <h3 class="text-xl font-heading font-semibold mb-6">Comments</h3>
+    <section class="mt-16 border-t border-slate-600 pt-8">
+      <h3 class="text-xl font-heading font-semibold text-slate-100 mb-6">Comments</h3>
       <div id="giscus-container" class="giscus"></div>
     </section>
   </main>
