@@ -2,6 +2,7 @@
 title: "TypeScript in Game Development: Lessons from the Trail"
 description: "How mountain biking taught me to write better TypeScript for game projects."
 pubDate: 2024-01-10
+draft: true
 tags: ["typescript", "game-dev", "programming"]
 ---
 

@@ -3,6 +3,7 @@ title: "Remote Work Setup: My Home Office Mountain View"
 description: "A tour of my remote work setup and how I optimized my home office for productivity while staying connected to the mountains."
 pubDate: 2024-01-15
 youtubeId: "OtOYCcH9ZAg"
+draft: true
 tags: ["remote-work", "home-office", "productivity", "mountain-biking"]
 ---
 

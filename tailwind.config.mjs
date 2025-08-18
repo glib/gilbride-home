@@ -5,10 +5,9 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["Inter Variable", "Inter", ...defaultTheme.fontFamily.sans],
+        sans: ["IBM Plex Sans", ...defaultTheme.fontFamily.sans],
         heading: [
-          "Manrope Variable",
-          "Manrope",
+          "Montserrat",
           ...defaultTheme.fontFamily.sans,
         ],
       },
@@ -20,27 +19,30 @@ export default {
             lineHeight: "1.7",
             fontSize: "1.125rem",
             h1: {
-              fontFamily: "Manrope Variable, Manrope, sans-serif",
+              fontFamily: "Montserrat, sans-serif",
               fontWeight: "700",
               fontSize: "2.5rem",
               lineHeight: "1.2",
               marginBottom: "1rem",
+              letterSpacing: "-0.02em",
             },
             h2: {
-              fontFamily: "Manrope Variable, Manrope, sans-serif",
+              fontFamily: "Montserrat, sans-serif",
               fontWeight: "600",
               fontSize: "2rem",
               lineHeight: "1.3",
               marginTop: "2rem",
               marginBottom: "1rem",
+              letterSpacing: "-0.01em",
             },
             h3: {
-              fontFamily: "Manrope Variable, Manrope, sans-serif",
+              fontFamily: "Montserrat, sans-serif",
               fontWeight: "600",
               fontSize: "1.5rem",
               lineHeight: "1.4",
               marginTop: "1.5rem",
               marginBottom: "0.5rem",
+              letterSpacing: "-0.01em",
             },
           },
         },
