@@ -6,7 +6,7 @@ youtubeId: "OtOYCcH9ZAg"
 tags: ["remote-work", "home-office", "productivity", "mountain-biking"]
 ---
 
-# The Perfect Remote Work Setup
+## The Perfect Remote Work Setup
 
 _This post accompanies the YouTube video tour of my home office setup - make sure to watch above for the full experience!_
 
