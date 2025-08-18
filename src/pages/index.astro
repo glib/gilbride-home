@@ -31,8 +31,8 @@ const allTags = [...new Set(posts.flatMap(post => post.data.tags || []))].sort()
   <nav class="bg-slate-900 border-b border-slate-700 sticky top-0 z-10">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between items-center py-4">
-        <div class="flex items-center gap-3">
-          <svg class="w-16 h-16 text-emerald-400" fill="currentColor" viewBox="0 0 32 24">
+        <div class="flex items-center gap-2 sm:gap-3">
+          <svg class="w-12 h-12 sm:w-16 sm:h-16 text-emerald-400" fill="currentColor" viewBox="0 0 32 24">
             <!-- Laptop mountain base -->
             <path d="M4 14 L16 6 L28 14 L26 18 L6 18 Z" fill="currentColor" opacity="0.3"/>
             <!-- Laptop screen (folded down) -->
@@ -63,19 +63,19 @@ const allTags = [...new Set(posts.flatMap(post => post.data.tags || []))].sort()
             <path d="M13 7 L13 9" stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
           </svg>
           <div>
-            <h1 class="text-2xl font-heading font-bold text-emerald-300">Work From Loam</h1>
-            <p class="text-sm text-slate-400 mt-1">Remote Work, Code & Mountain Biking</p>
+            <h1 class="text-lg sm:text-xl lg:text-2xl font-heading font-bold text-emerald-300">Work From Loam</h1>
+            <p class="text-xs sm:text-sm text-slate-400 mt-1">Remote Work, Code & Mountain Biking</p>
           </div>
         </div>
-        <div class="flex space-x-6">
-          <a href="/" class="text-emerald-300 font-medium">Posts</a>
-          <a href="/about" class="text-slate-300 hover:text-emerald-400 transition-colors font-medium">About</a>
-          <a href="https://youtube.com/@workfromloam" target="_blank" rel="noopener" class="text-slate-300 hover:text-emerald-400 transition-colors font-medium flex items-center gap-1">
-            <svg class="w-4 h-4" viewBox="0 0 24 24">
+        <div class="flex space-x-3 sm:space-x-6">
+          <a href="/" class="text-emerald-300 font-medium text-sm sm:text-base">Posts</a>
+          <a href="/about" class="text-slate-300 hover:text-emerald-400 transition-colors font-medium text-sm sm:text-base">About</a>
+          <a href="https://youtube.com/@workfromloam" target="_blank" rel="noopener" class="text-slate-300 hover:text-emerald-400 transition-colors font-medium flex items-center gap-1 text-sm sm:text-base">
+            <svg class="w-3 h-3 sm:w-4 sm:h-4" viewBox="0 0 24 24">
               <path fill="#FF0000" d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814z"/>
               <path fill="#FFFFFF" d="M9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
             </svg>
-            YouTube
+            <span class="hidden sm:inline">YouTube</span>
           </a>
         </div>
       </div>
@@ -83,12 +83,12 @@ const allTags = [...new Set(posts.flatMap(post => post.data.tags || []))].sort()
   </nav>
 
   <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-    <div class="flex gap-8">
+    <div class="flex flex-col lg:flex-row gap-8">
       <!-- Posts List -->
-      <div class="flex-1 max-w-4xl space-y-16">
+      <div class="flex-1 lg:max-w-4xl space-y-8 lg:space-y-16">
       {posts.map((post) => (
         <article 
-          class="post-card border-b border-slate-600 pb-12 last:border-b-0 border-l-4 border-l-emerald-500 pl-6"
+          class="post-card border-b border-slate-600 pb-8 lg:pb-12 last:border-b-0 border-l-4 border-l-emerald-500 pl-4 lg:pl-6"
           data-tags={JSON.stringify(post.data.tags || [])}
         >
           {(post.data.youtubeId || post.data.heroImage) && (
@@ -111,7 +111,7 @@ const allTags = [...new Set(posts.flatMap(post => post.data.tags || []))].sort()
           )}
           
           <div class="space-y-4">
-            <h2 class="text-4xl md:text-5xl font-heading font-bold text-slate-100 leading-tight" style="letter-spacing: -0.02em;">
+            <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-slate-100 leading-tight" style="letter-spacing: -0.02em;">
               <a href={`/blog/${post.slug}/`} class="hover:text-emerald-400 transition-colors">
                 {post.data.title}
               </a>
@@ -159,8 +159,8 @@ const allTags = [...new Set(posts.flatMap(post => post.data.tags || []))].sort()
       </div>
 
       <!-- Tag Filter Sidebar -->
-      <aside class="w-64 sticky top-24 h-fit">
-        <div class="bg-slate-700 rounded-lg p-6 border border-slate-600">
+      <aside class="w-full lg:w-64 lg:sticky lg:top-24 h-fit order-first lg:order-last">
+        <div class="bg-slate-700 rounded-lg p-4 lg:p-6 border border-slate-600">
           <h3 class="text-lg font-heading font-semibold text-slate-100 mb-4">Filter by Topic</h3>
           
           <div class="space-y-3">

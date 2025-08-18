@@ -27,12 +27,12 @@ const { title, description, pubDate, updatedDate, heroImage, youtubeId, tags = [
   <nav class="bg-white border-b border-gray-200 sticky top-0 z-10">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between items-center py-4">
-        <a href="/" class="text-xl font-heading font-bold text-gray-900 hover:text-blue-600 transition-colors">
+        <a href="/" class="text-lg sm:text-xl font-heading font-bold text-gray-900 hover:text-blue-600 transition-colors">
           Work From Loam
         </a>
-        <div class="flex space-x-6">
-          <a href="/" class="text-gray-600 hover:text-gray-900 transition-colors font-medium">Posts</a>
-          <a href="/about" class="text-gray-600 hover:text-gray-900 transition-colors font-medium">About</a>
+        <div class="flex space-x-3 sm:space-x-6">
+          <a href="/" class="text-gray-600 hover:text-gray-900 transition-colors font-medium text-sm sm:text-base">Posts</a>
+          <a href="/about" class="text-gray-600 hover:text-gray-900 transition-colors font-medium text-sm sm:text-base">About</a>
         </div>
       </div>
     </div>
@@ -62,11 +62,11 @@ const { title, description, pubDate, updatedDate, heroImage, youtubeId, tags = [
           />
         )}
         
-        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-heading font-bold text-gray-900 mb-4 leading-tight" style="letter-spacing: -0.02em;">
+        <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-gray-900 mb-4 leading-tight" style="letter-spacing: -0.02em;">
           {title}
         </h1>
         
-        <div class="flex flex-wrap items-center gap-4 text-sm text-gray-600 mb-6">
+        <div class="flex flex-wrap items-center gap-2 sm:gap-4 text-xs sm:text-sm text-gray-600 mb-6">
           <time datetime={pubDate.toISOString()}>
             {formatDate(pubDate)}
           </time>
