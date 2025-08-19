@@ -47,7 +47,7 @@
 }
 
 .btn-link-with-arrow {
-  @apply btn-link group;
+  @apply inline-flex items-center text-emerald-400 hover:text-emerald-300 font-medium transition-colors;
 }
 
 .btn-link-arrow {
