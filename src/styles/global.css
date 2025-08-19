@@ -2,7 +2,7 @@
 
 /* Universal prose styling for content areas */
 .prose-universal {
-  @apply text-slate-300 text-lg leading-relaxed prose prose-lg prose-invert max-w-none;
+  @apply text-slate-300 text-base sm:text-lg leading-relaxed prose prose-lg prose-invert max-w-none;
   @apply prose-headings:text-slate-100 prose-headings:font-heading;
   @apply prose-a:text-emerald-400 prose-a:no-underline hover:prose-a:text-emerald-300;
   @apply prose-code:text-slate-200 prose-code:bg-orange-900/30 prose-code:px-1 prose-code:py-0.5 prose-code:rounded;
@@ -13,7 +13,7 @@
 
 /* Universal card styling */
 .card-universal {
-  @apply bg-slate-800/50 rounded-lg border border-slate-700/50 p-6;
+  @apply bg-slate-800/50 rounded-lg border border-slate-700/50 p-4 sm:p-6;
 }
 
 /* Universal button styling */
