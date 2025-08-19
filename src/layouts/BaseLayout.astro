@@ -1,6 +1,8 @@
 ---
 import Analytics from '@vercel/analytics/astro';
 import '../styles/global.css';
+import '@fontsource/ibm-plex-sans';
+import '@fontsource/montserrat';
 
 export interface Props {
   title: string;
@@ -20,11 +22,7 @@ const { title, description, image } = Astro.props;
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     
-    <!-- Fonts -->
-    <style>
-      @import "@fontsource/ibm-plex-sans";
-      @import "@fontsource/montserrat";
-    </style>
+    <!-- Fonts are imported above -->
     
     <!-- Global Styles are imported above -->
     
