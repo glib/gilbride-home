@@ -1,0 +1,76 @@
+/* Global styles for consistent theming across all pages */
+
+/* Universal prose styling for content areas */
+.prose-universal {
+  @apply text-slate-300 text-lg leading-relaxed prose prose-lg prose-invert max-w-none;
+  @apply prose-headings:text-slate-100 prose-headings:font-heading;
+  @apply prose-a:text-emerald-400 prose-a:no-underline hover:prose-a:text-emerald-300;
+  @apply prose-code:text-slate-200 prose-code:bg-orange-900/30 prose-code:px-1 prose-code:py-0.5 prose-code:rounded;
+  @apply prose-pre:bg-slate-900 prose-pre:text-slate-100;
+  @apply prose-strong:text-slate-200;
+  @apply prose-ul:text-slate-300 prose-li:text-slate-300;
+}
+
+/* Universal card styling */
+.card-universal {
+  @apply bg-slate-800/50 rounded-lg border border-slate-700/50 p-6;
+}
+
+/* Universal button styling */
+.btn-primary {
+  @apply inline-flex items-center px-4 py-2 rounded-md font-medium transition-colors;
+  @apply bg-emerald-600 text-emerald-100 hover:bg-emerald-500;
+}
+
+.btn-secondary {
+  @apply inline-flex items-center px-4 py-2 rounded-md font-medium transition-colors;
+  @apply bg-slate-700 text-slate-300 hover:bg-slate-600 hover:text-slate-200;
+}
+
+/* Universal layout spacing */
+.page-container {
+  @apply max-w-6xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+.content-container {
+  @apply max-w-4xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+/* Universal heading styles */
+.heading-xl {
+  @apply text-3xl sm:text-4xl md:text-5xl font-heading font-bold text-slate-100 leading-tight;
+  letter-spacing: -0.02em;
+}
+
+.heading-lg {
+  @apply text-2xl sm:text-3xl font-heading font-bold text-slate-100 leading-tight;
+}
+
+.heading-md {
+  @apply text-xl sm:text-2xl font-heading font-semibold text-slate-100;
+}
+
+.heading-sm {
+  @apply text-lg font-heading font-medium text-slate-200;
+}
+
+/* Universal text colors */
+.text-primary {
+  @apply text-slate-100;
+}
+
+.text-secondary {
+  @apply text-slate-300;
+}
+
+.text-muted {
+  @apply text-slate-400;
+}
+
+.text-accent {
+  @apply text-emerald-400;
+}
+
+.text-accent-hover {
+  @apply text-emerald-400 hover:text-emerald-300 transition-colors;
+}
