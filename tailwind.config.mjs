@@ -5,11 +5,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["IBM Plex Sans", ...defaultTheme.fontFamily.sans],
-        heading: [
-          "Montserrat",
-          ...defaultTheme.fontFamily.sans,
-        ],
+        sans: ["Judson", ...defaultTheme.fontFamily.serif],
+        heading: ["Montserrat", ...defaultTheme.fontFamily.sans],
       },
       typography: {
         DEFAULT: {
