@@ -36,6 +36,24 @@
   @apply max-w-4xl mx-auto px-4 sm:px-6 lg:px-8;
 }
 
+/* Universal accent styling */
+.accent-border {
+  @apply border-l-4 border-l-emerald-500;
+}
+
+/* Enhanced button variants */
+.btn-link {
+  @apply inline-flex items-center text-emerald-400 hover:text-emerald-300 font-medium transition-colors;
+}
+
+.btn-link-with-arrow {
+  @apply btn-link group;
+}
+
+.btn-link-arrow {
+  @apply w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform;
+}
+
 /* Universal heading styles */
 .heading-xl {
   @apply text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-slate-100 leading-tight;

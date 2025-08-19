@@ -1,13 +1,14 @@
 ---
+import Container from './Container.astro';
 // Footer component for consistent styling across all pages
 ---
 
 <footer class="bg-slate-900 border-t border-slate-700 mt-16">
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+  <Container class="py-8">
     <div class="text-center">
       <p class="text-slate-400 text-sm">
         © {new Date().getFullYear()} Liam Gilbride. All rights reserved.
       </p>
     </div>
-  </div>
+  </Container>
 </footer>

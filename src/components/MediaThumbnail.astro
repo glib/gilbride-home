@@ -1,0 +1,49 @@
+---
+export interface Props {
+  /**
+   * The title for the media (alt text for images, title for videos)
+   */
+  title: string;
+  /**
+   * YouTube video ID (if this is a YouTube video)
+   */
+  youtubeId?: string;
+  /**
+   * Hero image URL (if this is an image)
+   */
+  heroImage?: string;
+  /**
+   * Link URL when thumbnail is clicked
+   */
+  href: string;
+  /**
+   * Additional CSS classes to apply
+   */
+  class?: string;
+}
+
+const { title, youtubeId, heroImage, href, class: className = '' } = Astro.props;
+
+// Determine the image source - YouTube thumbnail or hero image
+const imageSrc = heroImage || (youtubeId ? `https://img.youtube.com/vi/${youtubeId}/maxresdefault.jpg` : '');
+const hasMedia = !!(youtubeId || heroImage);
+---
+
+{hasMedia && (
+  <a href={href} class={`relative mb-6 aspect-video block group touch-manipulation ${className}`}>
+    <img
+      class="w-full h-full object-cover rounded-lg transition-transform group-hover:scale-105"
+      src={imageSrc}
+      alt={title}
+    />
+    {youtubeId && (
+      <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+        <div class="bg-black bg-opacity-60 rounded-full p-3 sm:p-4 transition-all group-hover:bg-opacity-80 group-hover:scale-110 pointer-events-none">
+          <svg class="w-6 h-6 sm:w-8 sm:h-8 text-white ml-0.5 sm:ml-1" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M8 5v14l11-7z"/>
+          </svg>
+        </div>
+      </div>
+    )}
+  </a>
+)}

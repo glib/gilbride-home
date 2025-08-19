@@ -2,6 +2,10 @@
 import BaseLayout from './BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import Container from '../components/Container.astro';
+import PostMetadata from '../components/PostMetadata.astro';
+import Comments from '../components/Comments.astro';
+import { formatDate } from '../utils/date';
 
 export interface Props {
   title: string;
@@ -13,22 +17,14 @@ export interface Props {
   tags?: string[];
 }
 
-// Date formatting utility
-function formatDate(date: Date): string {
-  return date.toLocaleDateString('en-US', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-  });
-}
-
 const { title, description, pubDate, updatedDate, heroImage, youtubeId, tags = [] } = Astro.props;
 ---
 
 <BaseLayout title={title} description={description} image={heroImage}>
   <Header />
 
-  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+  <main>
+    <Container class="py-8">
     <article>
       <header class="mb-8">
         {youtubeId && (
@@ -56,28 +52,12 @@ const { title, description, pubDate, updatedDate, heroImage, youtubeId, tags = [
           {title}
         </h1>
         
-        <div class="flex items-center gap-3 text-xs sm:text-sm text-slate-400 mb-6">
-          <time datetime={pubDate.toISOString()}>
-            {formatDate(pubDate)}
-          </time>
-          {updatedDate && (
-            <span>
-              · Updated {formatDate(updatedDate)}
-            </span>
-          )}
-          {tags.length > 0 && (
-            <>
-              <span>•</span>
-              <div class="flex flex-wrap gap-1">
-                {tags.map((tag) => (
-                  <span class="text-orange-400 text-xs font-medium">
-                    #{tag}
-                  </span>
-                ))}
-              </div>
-            </>
-          )}
-        </div>
+        <PostMetadata 
+          pubDate={pubDate}
+          updatedDate={updatedDate}
+          tags={tags}
+          class="mb-6 text-xs sm:text-sm"
+        />
       </header>
 
       <div class="prose-universal">
@@ -86,10 +66,8 @@ const { title, description, pubDate, updatedDate, heroImage, youtubeId, tags = [
     </article>
 
     <!-- Comments Section -->
-    <section class="mt-16 border-t border-slate-600 pt-8">
-      <h3 class="heading-md mb-6">Comments</h3>
-      <div id="giscus-container" class="giscus"></div>
-    </section>
+    <Comments />
+    </Container>
   </main>
 
   <Footer />

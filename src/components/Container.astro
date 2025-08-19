@@ -1,0 +1,20 @@
+---
+export interface Props {
+  /**
+   * Container variant - 'page' for full width content, 'content' for narrower text content
+   */
+  variant?: 'page' | 'content';
+  /**
+   * Additional CSS classes to apply
+   */
+  class?: string;
+}
+
+const { variant = 'page', class: className = '' } = Astro.props;
+
+const containerClass = variant === 'content' ? 'content-container' : 'page-container';
+---
+
+<div class={`${containerClass} ${className}`}>
+  <slot />
+</div>

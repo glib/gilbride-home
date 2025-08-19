@@ -1,0 +1,51 @@
+---
+import Tag from './Tag.astro';
+import { formatDate } from '../utils/date';
+
+export interface Props {
+  /**
+   * Publication date
+   */
+  pubDate: Date;
+  /**
+   * Last updated date (optional)
+   */
+  updatedDate?: Date;
+  /**
+   * Array of tags
+   */
+  tags?: string[];
+  /**
+   * Additional CSS classes to apply
+   */
+  class?: string;
+}
+
+const { pubDate, updatedDate, tags = [], class: className = '' } = Astro.props;
+---
+
+<div class={`flex items-center gap-3 text-sm text-slate-400 ${className}`}>
+  <time datetime={pubDate.toISOString()}>
+    {formatDate(pubDate)}
+  </time>
+  
+  {updatedDate && (
+    <>
+      <span>•</span>
+      <span class="text-slate-500">
+        Updated {formatDate(updatedDate)}
+      </span>
+    </>
+  )}
+  
+  {tags.length > 0 && (
+    <>
+      <span>•</span>
+      <div class="flex flex-wrap gap-1">
+        {tags.map((tag) => (
+          <Tag tag={tag} />
+        ))}
+      </div>
+    </>
+  )}
+</div>

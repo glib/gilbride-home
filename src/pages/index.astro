@@ -2,16 +2,11 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import Container from '../components/Container.astro';
+import PostCard from '../components/PostCard.astro';
+import FilterSidebar from '../components/FilterSidebar.astro';
 import { getCollection } from 'astro:content';
-
-// Date formatting utility
-function formatDate(date: Date): string {
-  return date.toLocaleDateString('en-US', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-  });
-}
+import { formatDate } from '../utils/date';
 
 const posts = await Promise.all(
   (await getCollection('blog', ({ data }) => import.meta.env.PROD ? !data.draft : true))
@@ -32,143 +27,29 @@ const allTags = [...new Set(posts.flatMap(post => post.data.tags || []))].sort()
 >
   <Header currentPath="/" />
 
-  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+  <main>
+    <Container class="py-8">
     <div class="flex flex-col lg:flex-row gap-8">
       <!-- Posts List -->
       <div class="flex-1 lg:max-w-4xl space-y-8 lg:space-y-16">
       {posts.map((post) => (
-        <article 
-          class="post-card border-b border-slate-600 pb-8 lg:pb-12 last:border-b-0 border-l-4 border-l-emerald-500 pl-4 lg:pl-6"
-          data-tags={JSON.stringify(post.data.tags || [])}
-        >
-          {(post.data.youtubeId || post.data.heroImage) && (
-            <a href={`/blog/${post.slug}/`} class="relative mb-6 aspect-video block group touch-manipulation">
-              <img
-                class="w-full h-full object-cover rounded-lg transition-transform group-hover:scale-105"
-                src={post.data.heroImage || `https://img.youtube.com/vi/${post.data.youtubeId}/maxresdefault.jpg`}
-                alt={post.data.title}
-              />
-              {post.data.youtubeId && (
-                <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
-                  <div class="bg-black bg-opacity-60 rounded-full p-3 sm:p-4 transition-all group-hover:bg-opacity-80 group-hover:scale-110 pointer-events-none">
-                    <svg class="w-6 h-6 sm:w-8 sm:h-8 text-white ml-0.5 sm:ml-1" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M8 5v14l11-7z"/>
-                    </svg>
-                  </div>
-                </div>
-              )}
-            </a>
-          )}
-          
-          <div class="space-y-4">
-            <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-slate-100 leading-tight" style="letter-spacing: -0.02em;">
-              <a href={`/blog/${post.slug}/`} class="hover:text-emerald-400 transition-colors">
-                {post.data.title}
-              </a>
-            </h2>
-            
-            <div class="flex items-center gap-3 text-sm text-slate-400">
-              <time datetime={post.data.pubDate.toISOString()}>
-                {formatDate(post.data.pubDate)}
-              </time>
-              {(post.data.tags || []).length > 0 && (
-                <>
-                  <span>•</span>
-                  <div class="flex flex-wrap gap-1">
-                    {(post.data.tags || []).map((tag) => (
-                      <span class="text-orange-400 text-xs font-medium">
-                        #{tag}
-                      </span>
-                    ))}
-                  </div>
-                </>
-              )}
-            </div>
-            
-            <div class="text-slate-300 text-lg leading-relaxed prose prose-lg prose-invert max-w-none prose-headings:text-slate-100 prose-headings:font-heading prose-a:text-emerald-400 prose-a:no-underline hover:prose-a:text-emerald-300 prose-code:text-slate-200 prose-code:bg-orange-900/30 prose-code:px-1 prose-code:py-0.5 prose-code:rounded prose-pre:bg-slate-900 prose-pre:text-slate-100">
-              <post.Content />
-            </div>
-            <div class="mt-4 text-slate-400 text-sm italic">
-              Continue reading for more details...
-            </div>
-            
-            <div class="pt-2">
-              <a
-                href={`/blog/${post.slug}/`}
-                class="inline-flex items-center text-emerald-400 hover:text-emerald-300 font-medium transition-colors group"
-              >
-                Read full article
-                <svg class="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                </svg>
-              </a>
-            </div>
-          </div>
-        </article>
+        <PostCard 
+          slug={post.slug}
+          title={post.data.title}
+          pubDate={post.data.pubDate}
+          tags={post.data.tags}
+          youtubeId={post.data.youtubeId}
+          heroImage={post.data.heroImage}
+          Content={post.Content}
+        />
       ))}
       </div>
 
       <!-- Tag Filter Sidebar -->
-      <aside class="w-full lg:w-64 lg:sticky lg:top-24 h-fit order-first lg:order-last mb-6 lg:mb-0">
-        <div class="bg-slate-800/50 lg:bg-slate-700 rounded-lg p-3 lg:p-6 border border-slate-700/50 lg:border-slate-600">
-          <h3 class="text-base lg:text-lg font-heading font-medium lg:font-semibold text-slate-200 lg:text-slate-100 mb-3 lg:mb-4">Filter by Topic</h3>
-          
-          <div class="flex flex-wrap gap-2 lg:space-y-3 lg:flex-col lg:gap-0">
-            <button 
-              class="tag-filter active px-3 py-1 lg:py-2 rounded-md text-xs lg:text-sm font-medium bg-emerald-600/80 lg:bg-emerald-600 text-emerald-100 hover:bg-emerald-500 transition-colors lg:w-full lg:text-left"
-              data-tag="all"
-            >
-              All Posts
-            </button>
-            
-            {allTags.map((tag) => (
-              <button 
-                class="tag-filter px-3 py-1 lg:py-2 rounded-md text-xs lg:text-sm text-slate-300 hover:bg-orange-900/30 hover:text-orange-300 transition-colors lg:w-full lg:text-left"
-                data-tag={tag}
-              >
-                #{tag}
-              </button>
-            ))}
-          </div>
-        </div>
-      </aside>
+      <FilterSidebar tags={allTags} />
     </div>
+    </Container>
   </main>
-
-
-  <script>
-    // Tag filtering functionality
-    document.addEventListener('DOMContentLoaded', function() {
-      const tagButtons = document.querySelectorAll('.tag-filter');
-      const postCards = document.querySelectorAll('.post-card');
-      
-      tagButtons.forEach(button => {
-        button.addEventListener('click', function() {
-          const selectedTag = this.dataset.tag;
-          
-          // Update button states
-          tagButtons.forEach(btn => {
-            btn.classList.remove('active', 'bg-emerald-600', 'text-emerald-100');
-            btn.classList.add('text-slate-300');
-          });
-          
-          this.classList.remove('text-slate-300');
-          this.classList.add('active', 'bg-emerald-600', 'text-emerald-100');
-          
-          // Filter posts
-          postCards.forEach(card => {
-            const postTags = JSON.parse(card.dataset.tags);
-            
-            if (selectedTag === 'all' || postTags.includes(selectedTag)) {
-              card.style.display = 'block';
-            } else {
-              card.style.display = 'none';
-            }
-          });
-        });
-      });
-    });
-  </script>
 
   <Footer />
 </BaseLayout>

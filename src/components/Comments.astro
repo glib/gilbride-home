@@ -1,0 +1,45 @@
+---
+import { GISCUS_CONFIG } from '../utils/constants';
+
+export interface Props {
+  /**
+   * Additional CSS classes to apply to the comments section
+   */
+  class?: string;
+}
+
+const { class: className = '' } = Astro.props;
+---
+
+<section class={`mt-16 border-t border-slate-600 pt-8 ${className}`}>
+  <h3 class="heading-md mb-6">Comments</h3>
+  <div id="giscus-container" class="giscus"></div>
+</section>
+
+<script define:vars={{ GISCUS_CONFIG }}>
+  function loadGiscus() {
+    const script = document.createElement('script');
+    script.src = 'https://giscus.app/client.js';
+    script.setAttribute('data-repo', GISCUS_CONFIG.repo);
+    script.setAttribute('data-repo-id', GISCUS_CONFIG.repoId);
+    script.setAttribute('data-category', GISCUS_CONFIG.category);
+    script.setAttribute('data-category-id', GISCUS_CONFIG.categoryId);
+    script.setAttribute('data-mapping', GISCUS_CONFIG.mapping);
+    script.setAttribute('data-strict', GISCUS_CONFIG.strict);
+    script.setAttribute('data-reactions-enabled', GISCUS_CONFIG.reactionsEnabled);
+    script.setAttribute('data-emit-metadata', GISCUS_CONFIG.emitMetadata);
+    script.setAttribute('data-input-position', GISCUS_CONFIG.inputPosition);
+    script.setAttribute('data-theme', GISCUS_CONFIG.theme);
+    script.setAttribute('data-lang', GISCUS_CONFIG.lang);
+    script.crossOrigin = 'anonymous';
+    script.async = true;
+    
+    const giscusContainer = document.getElementById('giscus-container');
+    if (giscusContainer) {
+      giscusContainer.appendChild(script);
+    }
+  }
+  
+  // Load Giscus when the page loads
+  document.addEventListener('DOMContentLoaded', loadGiscus);
+</script>
