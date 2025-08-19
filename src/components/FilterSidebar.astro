@@ -49,7 +49,7 @@ const { tags, class: className = '' } = Astro.props;
         
         // Update button states
         tagButtons.forEach(btn => {
-          btn.classList.remove('active', 'bg-emerald-600', 'text-emerald-100');
+          btn.classList.remove('active', 'bg-emerald-600', 'bg-emerald-600/80', 'lg:bg-emerald-600', 'text-emerald-100');
           btn.classList.add('text-slate-300');
         });
         
