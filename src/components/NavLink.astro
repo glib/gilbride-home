@@ -1,0 +1,44 @@
+---
+export interface Props {
+  /**
+   * The URL path this link points to
+   */
+  href: string;
+  /**
+   * The current page path for active state detection
+   */
+  currentPath?: string;
+  /**
+   * Link text content
+   */
+  text: string;
+  /**
+   * External link flag - adds target="_blank" and rel attributes
+   */
+  external?: boolean;
+  /**
+   * Additional CSS classes to apply
+   */
+  class?: string;
+}
+
+const { href, currentPath, text, external = false, class: className = '' } = Astro.props;
+
+const isActive = currentPath === href;
+const baseClasses = "font-medium text-sm sm:text-base transition-colors";
+const stateClasses = isActive 
+  ? "text-emerald-300" 
+  : "text-slate-300 hover:text-emerald-400";
+
+const externalAttrs = external 
+  ? { target: "_blank", rel: "noopener" }
+  : {};
+---
+
+<a 
+  href={href}
+  class={`${baseClasses} ${stateClasses} ${className}`}
+  {...externalAttrs}
+>
+  {text}
+</a>

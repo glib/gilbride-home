@@ -1,4 +1,7 @@
 ---
+import Container from './Container.astro';
+import NavLink from './NavLink.astro';
+
 export interface Props {
   currentPath?: string;
 }
@@ -7,7 +10,7 @@ const { currentPath = "/" } = Astro.props;
 ---
 
 <nav class="bg-slate-900 border-b border-slate-700 sticky top-0 z-10">
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+  <Container>
     <div class="flex justify-between items-center py-4">
       <a href="/" class="flex items-center gap-2 sm:gap-3 touch-manipulation">
         <img 
@@ -25,22 +28,16 @@ const { currentPath = "/" } = Astro.props;
         </div>
       </a>
       <div class="flex space-x-3 sm:space-x-6">
-        <a 
+        <NavLink 
           href="/" 
-          class={`font-medium text-sm sm:text-base transition-colors ${
-            currentPath === "/" ? "text-emerald-300" : "text-slate-300 hover:text-emerald-400"
-          }`}
-        >
-          Posts
-        </a>
-        <a 
+          currentPath={currentPath}
+          text="Posts"
+        />
+        <NavLink 
           href="/about" 
-          class={`font-medium text-sm sm:text-base transition-colors ${
-            currentPath === "/about" ? "text-emerald-300" : "text-slate-300 hover:text-emerald-400"
-          }`}
-        >
-          About
-        </a>
+          currentPath={currentPath}
+          text="About"
+        />
         <a 
           href="https://youtube.com/@workfromloam" 
           target="_blank" 
@@ -55,5 +52,5 @@ const { currentPath = "/" } = Astro.props;
         </a>
       </div>
     </div>
-  </div>
+  </Container>
 </nav>

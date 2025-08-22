@@ -1,0 +1,97 @@
+---
+import MediaThumbnail from './MediaThumbnail.astro';
+import PostMetadata from './PostMetadata.astro';
+
+export interface Props {
+  /**
+   * Post slug for URL generation
+   */
+  slug: string;
+  /**
+   * Post title
+   */
+  title: string;
+  /**
+   * Publication date
+   */
+  pubDate: Date;
+  /**
+   * Post tags
+   */
+  tags?: string[];
+  /**
+   * YouTube video ID (optional)
+   */
+  youtubeId?: string;
+  /**
+   * Hero image URL (optional)
+   */
+  heroImage?: string;
+  /**
+   * Post content (Astro component)
+   */
+  Content: any;
+  /**
+   * Additional CSS classes to apply
+   */
+  class?: string;
+}
+
+const { 
+  slug, 
+  title, 
+  pubDate, 
+  tags = [], 
+  youtubeId, 
+  heroImage, 
+  Content,
+  class: className = '' 
+} = Astro.props;
+
+const postUrl = `/blog/${slug}/`;
+---
+
+<article 
+  class={`post-card border-b border-slate-600 pb-8 lg:pb-12 last:border-b-0 accent-border pl-4 lg:pl-6 ${className}`}
+  data-tags={JSON.stringify(tags)}
+>
+  <MediaThumbnail 
+    title={title}
+    youtubeId={youtubeId}
+    heroImage={heroImage}
+    href={postUrl}
+  />
+  
+  <div class="space-y-4">
+    <h2 class="heading-xl">
+      <a href={postUrl} class="hover:text-emerald-400 transition-colors">
+        {title}
+      </a>
+    </h2>
+    
+    <PostMetadata 
+      pubDate={pubDate}
+      tags={tags}
+    />
+    
+    <div class="prose-universal">
+      <Content />
+    </div>
+    
+    <div class="mt-4 text-slate-400 text-sm italic">
+      Continue reading for more details...
+    </div>
+    
+    <div class="pt-2">
+      <a
+        href={postUrl}
+        class="btn-link-with-arrow group"
+      >
+        Read full article
+        <svg class="btn-link-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+</article>

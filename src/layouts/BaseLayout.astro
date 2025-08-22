@@ -1,5 +1,8 @@
 ---
 import Analytics from '@vercel/analytics/astro';
+import '../styles/global.css';
+import '@fontsource/judson';
+import '@fontsource/montserrat';
 
 export interface Props {
   title: string;
@@ -19,14 +22,9 @@ const { title, description, image } = Astro.props;
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     
-    <!-- Fonts -->
-    <style>
-      @import "@fontsource/ibm-plex-sans";
-      @import "@fontsource/montserrat";
-    </style>
+    <!-- Fonts are imported above -->
     
-    <!-- Global Styles -->
-    <link rel="stylesheet" href="/src/styles/global.css" />
+    <!-- Global Styles are imported above -->
     
     <title>{title}</title>
     
@@ -44,34 +42,5 @@ const { title, description, image } = Astro.props;
   <body class="bg-slate-800 text-slate-100 font-sans antialiased">
     <slot />
     <Analytics />
-    
-    <!-- Giscus Comments Script -->
-    <script>
-      function loadGiscus() {
-        const script = document.createElement('script');
-        script.src = 'https://giscus.app/client.js';
-        script.setAttribute('data-repo', 'YOUR_GITHUB_USERNAME/YOUR_REPO_NAME');
-        script.setAttribute('data-repo-id', 'YOUR_REPO_ID');
-        script.setAttribute('data-category', 'General');
-        script.setAttribute('data-category-id', 'YOUR_CATEGORY_ID');
-        script.setAttribute('data-mapping', 'pathname');
-        script.setAttribute('data-strict', '0');
-        script.setAttribute('data-reactions-enabled', '1');
-        script.setAttribute('data-emit-metadata', '0');
-        script.setAttribute('data-input-position', 'bottom');
-        script.setAttribute('data-theme', 'light');
-        script.setAttribute('data-lang', 'en');
-        script.crossOrigin = 'anonymous';
-        script.async = true;
-        
-        const giscusContainer = document.getElementById('giscus-container');
-        if (giscusContainer) {
-          giscusContainer.appendChild(script);
-        }
-      }
-      
-      // Load Giscus when the page loads
-      document.addEventListener('DOMContentLoaded', loadGiscus);
-    </script>
   </body>
 </html>
