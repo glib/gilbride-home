@@ -10,36 +10,15 @@ const { currentPath = "/" } = Astro.props;
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex justify-between items-center py-4">
       <a href="/" class="flex items-center gap-2 sm:gap-3 touch-manipulation">
-        <svg class="w-12 h-12 sm:w-16 sm:h-16 text-emerald-400" fill="currentColor" viewBox="0 0 32 24">
-          <!-- Laptop mountain base -->
-          <path d="M4 14 L16 6 L28 14 L26 18 L6 18 Z" fill="currentColor" opacity="0.3"/>
-          <!-- Laptop screen (folded down) -->
-          <rect x="8" y="16" width="16" height="2" rx="1" fill="currentColor" opacity="0.5"/>
-          <!-- Laptop keyboard area -->
-          <rect x="10" y="18" width="12" height="1" rx="0.5" fill="currentColor" opacity="0.4"/>
-          
-          <!-- Mountain bike -->
-          <!-- Rear wheel -->
-          <circle cx="8" cy="12" r="2.5" fill="none" stroke="currentColor" stroke-width="0.8"/>
-          <circle cx="8" cy="12" r="0.3" fill="currentColor"/>
-          <!-- Front wheel -->
-          <circle cx="20" cy="12" r="2.5" fill="none" stroke="currentColor" stroke-width="0.8"/>
-          <circle cx="20" cy="12" r="0.3" fill="currentColor"/>
-          
-          <!-- Bike frame -->
-          <path d="M8 12 L12 8 L16 8 L20 12" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
-          <path d="M8 12 L12 8 L8 8" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
-          <path d="M16 8 L18 10 L20 12" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
-          
-          <!-- Handlebars -->
-          <path d="M15 7 L17 7" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
-          <!-- Seat -->
-          <path d="M10 7 L12 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-          
-          <!-- Rider (simple) -->
-          <circle cx="13" cy="6" r="1" fill="currentColor" opacity="0.8"/>
-          <path d="M13 7 L13 9" stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
-        </svg>
+        <img 
+          src="/logo.png" 
+          alt="Work From Loam Logo" 
+          class="w-12 h-12 sm:w-16 sm:h-16 rounded-full object-cover"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
+        />
+        <div class="w-12 h-12 sm:w-16 sm:h-16 bg-emerald-500 rounded-full flex items-center justify-center font-bold text-slate-900 text-lg sm:text-xl hidden">
+          WFL
+        </div>
         <div>
           <h1 class="text-base sm:text-lg lg:text-xl xl:text-2xl font-heading font-bold text-emerald-300">Work From Loam</h1>
           <p class="text-xs sm:text-sm text-slate-400 mt-0.5 sm:mt-1">Remote Work, Code & Mountain Biking</p>
