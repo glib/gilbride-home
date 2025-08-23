@@ -56,9 +56,9 @@ const timelinePosts = posts;
 
       <!-- Main Content Grid: Posts Column + Timeline Column -->
       {featuredPosts.length > 0 && (
-        <div class="grid xl:grid-cols-3 gap-6 lg:gap-8">
+        <div class="grid lg:grid-cols-3 gap-6 lg:gap-8">
           <!-- Posts Column (Main + Secondary Posts + CTA) -->
-          <div class="xl:col-span-2 space-y-6 lg:space-y-8">
+          <div class="lg:col-span-2 space-y-6 lg:space-y-8">
             <!-- Featured Post (Latest) -->
             <PostCard 
               slug={featuredPosts[0].slug}
@@ -106,7 +106,7 @@ const timelinePosts = posts;
           </div>
           
           <!-- Timeline Column (Extended) - Hidden on mobile and tablet for better focus -->
-          <div class="xl:col-span-1 hidden xl:block">
+          <div class="lg:col-span-1 hidden lg:block">
             <PostTimeline posts={timelinePosts} limit={15} />
           </div>
         </div>

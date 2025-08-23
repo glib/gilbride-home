@@ -1,5 +1,29 @@
 /* Global styles for consistent theming across all pages */
 
+/* Prevent zoom-out layout breaks on mobile */
+html {
+  overflow-x: hidden;
+  width: 100vw;
+  touch-action: manipulation; /* Disable double-tap zoom, allow accessibility zoom */
+}
+
+body {
+  overflow-x: hidden;
+  min-width: 320px; /* Minimum width to prevent layout collapse */
+  touch-action: manipulation; /* Modern approach to disable double-tap zoom */
+}
+
+/* Prevent iOS input auto-zoom by ensuring minimum font size */
+input, textarea, select {
+  font-size: 16px;
+}
+
+@media (max-width: 640px) {
+  input, textarea, select {
+    font-size: 16px; /* Prevent iOS auto-zoom on input focus */
+  }
+}
+
 /* Universal prose styling for content areas */
 .prose-universal {
   @apply text-text-primary text-lg leading-relaxed prose prose-lg prose-invert max-w-none;
