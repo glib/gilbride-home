@@ -1,4 +1,6 @@
 ---
+import { Image } from 'astro:assets';
+
 export interface Props {
   /**
    * The title for the media (alt text for images, title for videos)
@@ -31,10 +33,13 @@ const hasMedia = !!(youtubeId || heroImage);
 
 {hasMedia && (
   <a href={href} class={`relative mb-6 aspect-video block group touch-manipulation ${className}`}>
-    <img
+    <Image
       class="w-full h-full object-cover rounded-lg transition-transform group-hover:scale-105"
       src={imageSrc}
       alt={title}
+      width={800}
+      height={450}
+      loading="lazy"
     />
     {youtubeId && (
       <div class="absolute inset-0 flex items-center justify-center pointer-events-none">

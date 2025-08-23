@@ -54,7 +54,7 @@ const {
   class: className = '' 
 } = Astro.props;
 
-const postUrl = `/blog/${slug}/`;
+const postUrl = slug.startsWith('drafts/') ? `/blog/${slug}/` : `/blog/${slug}/`;
 ---
 
 <article 

@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import { formatDate } from '../utils/date';
 
 export interface Props {
@@ -43,7 +44,7 @@ const timelinePosts = posts.slice(0, limit);
     
     <div class="space-y-6">
       {timelinePosts.map((post, index) => {
-        const postUrl = `/blog/${post.slug}/`;
+        const postUrl = post.slug.startsWith('drafts/') ? `/blog/${post.slug}/` : `/blog/${post.slug}/`;
         return (
           <article class="timeline-item group relative">
             <a href={postUrl} class="block">
@@ -52,17 +53,21 @@ const timelinePosts = posts.slice(0, limit);
                 <div class="relative z-10 flex-shrink-0">
                   <div class="w-12 h-12 bg-tertiary rounded-full overflow-hidden ring-4 ring-primary group-hover:ring-highlight/40 transition-all duration-200">
                     {post.data.youtubeId ? (
-                      <img 
+                      <Image 
                         src={`https://img.youtube.com/vi/${post.data.youtubeId}/mqdefault.jpg`}
                         alt={post.data.title}
                         class="w-full h-full object-cover transition-transform group-hover:scale-105"
+                        width={48}
+                        height={48}
                         loading="lazy"
                       />
                     ) : post.data.heroImage ? (
-                      <img 
+                      <Image 
                         src={post.data.heroImage}
                         alt={post.data.title}
                         class="w-full h-full object-cover transition-transform group-hover:scale-105"
+                        width={48}
+                        height={48}
                         loading="lazy"
                       />
                     ) : (

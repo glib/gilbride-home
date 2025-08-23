@@ -1,15 +1,19 @@
 ---
 import { getCollection } from 'astro:content';
-import BlogPost from '../../layouts/BlogPost.astro';
+import BlogPost from '../../../layouts/BlogPost.astro';
 
 export async function getStaticPaths() {
-  // Only include published posts (non-draft)
+  // Only include draft posts in development
+  if (!import.meta.env.DEV) {
+    return []; // No draft routes in production
+  }
+  
   const posts = await getCollection('blog', ({ slug }) => {
-    return !slug.startsWith('drafts/'); // Exclude drafts from this route
+    return slug.startsWith('drafts/'); // Only include drafts
   });
   
   return posts.map((post) => ({
-    params: { slug: post.slug },
+    params: { slug: post.slug.replace('drafts/', '') }, // Remove drafts/ prefix from URL
     props: post,
   }));
 }

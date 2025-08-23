@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import Container from './Container.astro';
 // Footer component for consistent styling across all pages
 ---
@@ -9,11 +10,13 @@ import Container from './Container.astro';
       <!-- Brand Column -->
       <div class="md:col-span-2">
         <div class="flex items-center gap-3 mb-4">
-          <img 
+          <Image 
             src="/logo.png" 
             alt="Work From Loam Logo" 
             class="w-10 h-10 rounded-full object-cover"
-            onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
+            width={40}
+            height={40}
+            loading="lazy"
           />
           <div class="w-10 h-10 bg-highlight rounded-full flex items-center justify-center font-bold text-primary text-sm hidden">
             WFL
