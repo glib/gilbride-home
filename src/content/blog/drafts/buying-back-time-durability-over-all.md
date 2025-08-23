@@ -1,10 +1,10 @@
 ---
 title: "Buying back time"
-description: "Durability, ease of maintenence and user servicability over everthing else."
+description: "Durability, ease of maintenance and user serviceability over everything else."
 pubDate: 2025-08-18
 tags: ["mountain-biking", "components"]
 # youtubeId: "VIDEO_ID"  # Uncomment and add YouTube video ID if needed
-heroImage: "/src/images/buying-back-time.jpg" # Uncomment and add hero image path if needed
+heroImage: "../../../images/buying-back-time/hero.jpg"
 ---
 
 ## The Trifecta
@@ -13,8 +13,8 @@ There is an old adage - strong, cheap, light: pick two. I'm not actually sure wh
 
 I never really subscribed to the lightweight aspect of mountain biking. When I started in the late 90s and early 2000s, the 'cool' kids were already bragging about who had a heavier freeride machine. Fourty pound hardtails were common and badges of honor, while everyone knew only the nerdy XC racers worried about lightweight components. Although everyone agreed that titanium was still cool. All the cool people were freeriding, and freeride broke everything, so buying the cheapest and or heaviest parts you could was the way to go. I ran BMX flag pedals and really wanted the Profile cranks that people had figured out how to retrofit to a mountainbike bottom bracket - not that I'd ever broken a BB before but they just looked so cool.
 
-![profile cranks](/src/images/buying-back-time2.jpg)
-_They honestly still look amazing, just look at that polished steel_
+![Profile Racing cranks with polished steel finish on a mountain bike](../../../images/buying-back-time/profile-cranks.jpg)
+*They honestly still look amazing, just look at that polished steel*
 
 ## The interregnum
 

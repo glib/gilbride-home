@@ -9,6 +9,7 @@
     "preview": "astro preview",
     "astro": "astro",
     "new-post": "node scripts/new-post.js",
+    "create-post": "node scripts/create-blog-post.js",
     "drafts": "node scripts/manage-drafts.js"
   },
   "dependencies": {
