@@ -4,9 +4,9 @@ import Container from './Container.astro';
 // Footer component for consistent styling across all pages
 ---
 
-<footer class="bg-secondary border-t border-tertiary mt-16">
-  <Container class="py-12">
-    <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+<footer class="bg-secondary border-t border-tertiary mt-12 lg:mt-16">
+  <Container class="py-8 lg:py-12">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-6 lg:gap-8 mb-6 lg:mb-8">
       <!-- Brand Column -->
       <div class="md:col-span-2">
         <div class="flex items-center gap-3 mb-4">
@@ -36,7 +36,7 @@ import Container from './Container.astro';
             href="https://youtube.com/@workfromloam" 
             target="_blank" 
             rel="noopener"
-            class="inline-flex items-center justify-center px-4 py-2 bg-highlight text-primary font-heading font-medium text-sm rounded-md hover:bg-highlight/80 transition-colors"
+            class="inline-flex items-center justify-center px-4 py-3 min-h-[44px] bg-highlight text-primary font-heading font-medium text-sm rounded-md hover:bg-highlight/80 transition-colors touch-manipulation"
           >
             <svg class="w-4 h-4 mr-2" viewBox="0 0 24 24">
               <path fill="currentColor" d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814z"/>
@@ -46,7 +46,7 @@ import Container from './Container.astro';
           </a>
           <a 
             href="/about" 
-            class="inline-flex items-center justify-center px-4 py-2 bg-tertiary text-text-primary font-heading font-medium text-sm rounded-md hover:bg-accent transition-colors"
+            class="inline-flex items-center justify-center px-4 py-3 min-h-[44px] bg-tertiary text-text-primary font-heading font-medium text-sm rounded-md hover:bg-accent transition-colors touch-manipulation"
           >
             Learn More
           </a>
