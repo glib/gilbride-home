@@ -3,7 +3,7 @@ title: "Building Remote Team Culture in Game Development"
 description: "How our distributed game development team maintains strong collaboration and culture across time zones."
 pubDate: 2024-03-15
 heroImage: "https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?w=800&h=400&fit=crop&crop=center"
-draft: true
+draft: false
 tags: ["remote-work", "game-dev", "team-culture", "collaboration"]
 ---
 

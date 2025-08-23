@@ -13,7 +13,11 @@ const { class: className = '' } = Astro.props;
 
 <section class={`mt-16 border-t border-tertiary pt-8 ${className}`}>
   <h3 class="heading-md mb-6">Comments</h3>
-  <div id="giscus-container" class="giscus"></div>
+  
+  <!-- Giscus Comments Container -->
+  <div class="bg-secondary rounded-lg border border-tertiary overflow-hidden">
+    <div id="giscus-container" class="giscus min-h-[300px]"></div>
+  </div>
 </section>
 
 <script define:vars={{ GISCUS_CONFIG }}>
@@ -31,6 +35,12 @@ const { class: className = '' } = Astro.props;
     script.setAttribute('data-input-position', GISCUS_CONFIG.inputPosition);
     script.setAttribute('data-theme', GISCUS_CONFIG.theme);
     script.setAttribute('data-lang', GISCUS_CONFIG.lang);
+    
+    // Add loading attribute if present
+    if (GISCUS_CONFIG.loading) {
+      script.setAttribute('data-loading', GISCUS_CONFIG.loading);
+    }
+    
     script.crossOrigin = 'anonymous';
     script.async = true;
     
@@ -43,3 +53,27 @@ const { class: className = '' } = Astro.props;
   // Load Giscus when the page loads
   document.addEventListener('DOMContentLoaded', loadGiscus);
 </script>
+
+<style>
+  /* Giscus integration styling */
+  .giscus {
+    background-color: transparent;
+  }
+  
+  /* Create a smooth transition for loading */
+  #giscus-container {
+    background-color: #1a211b;
+    transition: opacity 0.3s ease-in-out;
+  }
+  
+  #giscus-container:empty::before {
+    content: "Loading comments...";
+    color: #9ca196;
+    font-size: 0.875rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 200px;
+    font-family: 'Montserrat Variable', sans-serif;
+  }
+</style>

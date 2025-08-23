@@ -12,6 +12,57 @@
   @apply prose-img:rounded-lg prose-img:shadow-lg;
 }
 
+/* Constrain text content width while allowing images to break out */
+.prose-universal > * {
+  max-width: 65ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Force images and their containers to use full width */
+.prose-universal p:has(img),
+.prose-universal div:has(img),
+.prose-universal figure,
+.prose-universal .aspect-video,
+.prose-universal pre {
+  max-width: none !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+/* Direct image styling */
+.prose-universal img {
+  max-width: none !important;
+  width: 100% !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+/* Alternative approach: Use CSS Grid for breakout */
+.prose-universal {
+  display: grid;
+  grid-template-columns: 
+    1fr 
+    min(65ch, calc(100vw - 2rem)) 
+    1fr;
+}
+
+.prose-universal > * {
+  grid-column: 2;
+  max-width: none;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.prose-universal > img,
+.prose-universal > figure,
+.prose-universal > pre,
+.prose-universal > .aspect-video,
+.prose-universal > p:has(img),
+.prose-universal > div:has(img) {
+  grid-column: 1 / -1;
+}
+
 /* Image captions styling */
 .prose-universal img + em {
   @apply block text-center text-text-muted text-sm mt-1 mb-4 italic;

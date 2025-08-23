@@ -9,15 +9,16 @@ export const SITE_CONFIG = {
 } as const;
 
 export const GISCUS_CONFIG = {
-  repo: import.meta.env.GISCUS_REPO || 'YOUR_GITHUB_USERNAME/YOUR_REPO_NAME',
-  repoId: import.meta.env.GISCUS_REPO_ID || 'YOUR_REPO_ID',
-  category: import.meta.env.GISCUS_CATEGORY || 'General',
-  categoryId: import.meta.env.GISCUS_CATEGORY_ID || 'YOUR_CATEGORY_ID',
+  repo: 'glib/gilbride-home',
+  repoId: 'R_kgDOPJqa6A',
+  category: 'Announcements',
+  categoryId: 'DIC_kwDOPJqa6M4CufxW',
   mapping: 'pathname',
   strict: '0',
   reactionsEnabled: '1',
-  emitMetadata: '0',
+  emitMetadata: '1',
   inputPosition: 'bottom',
-  theme: 'light',
+  theme: 'dark_dimmed',
   lang: 'en',
+  loading: 'lazy',
 } as const;
