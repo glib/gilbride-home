@@ -52,7 +52,7 @@ const postUrl = `/blog/${slug}/`;
 ---
 
 <article 
-  class={`post-card border-b border-slate-600 pb-8 lg:pb-12 last:border-b-0 accent-border pl-4 lg:pl-6 ${className}`}
+  class={`post-card border-b border-tertiary pb-8 lg:pb-12 last:border-b-0 accent-border pl-4 lg:pl-6 ${className}`}
   data-tags={JSON.stringify(tags)}
 >
   <MediaThumbnail 
@@ -64,7 +64,7 @@ const postUrl = `/blog/${slug}/`;
   
   <div class="space-y-4">
     <h2 class="heading-xl">
-      <a href={postUrl} class="hover:text-emerald-400 transition-colors">
+      <a href={postUrl} class="hover:text-highlight transition-colors">
         {title}
       </a>
     </h2>
@@ -78,7 +78,7 @@ const postUrl = `/blog/${slug}/`;
       <Content />
     </div>
     
-    <div class="mt-4 text-slate-400 text-sm italic">
+    <div class="mt-4 text-text-muted text-sm italic">
       Continue reading for more details...
     </div>
     

@@ -14,12 +14,12 @@ const { tags, class: className = '' } = Astro.props;
 ---
 
 <aside class={`w-full lg:w-64 lg:sticky lg:top-24 h-fit order-first lg:order-last mb-6 lg:mb-0 ${className}`}>
-  <div class="bg-slate-800/50 lg:bg-slate-700 rounded-lg p-3 lg:p-6 border border-slate-700/50 lg:border-slate-600">
-    <h3 class="text-base lg:text-lg font-heading font-medium lg:font-semibold text-slate-200 lg:text-slate-100 mb-3 lg:mb-4">Filter by Topic</h3>
+  <div class="bg-tertiary/60 lg:bg-tertiary rounded-lg p-3 lg:p-6 border border-accent/40 lg:border-accent">
+    <h3 class="text-base lg:text-lg font-heading font-medium lg:font-semibold text-text-secondary lg:text-text-primary mb-3 lg:mb-4">Filter by Topic</h3>
     
     <div class="flex flex-wrap gap-2 lg:space-y-3 lg:flex-col lg:gap-0">
       <button 
-        class="tag-filter active px-3 py-1 lg:py-2 rounded-md text-xs lg:text-sm font-medium bg-emerald-600 text-emerald-100 hover:bg-emerald-500 transition-colors lg:w-full lg:text-left"
+        class="tag-filter active px-3 py-1 lg:py-2 rounded-md text-xs lg:text-sm font-medium bg-bright text-primary hover:bg-highlight transition-colors lg:w-full lg:text-left"
         data-tag="all"
       >
         All Posts
@@ -27,7 +27,7 @@ const { tags, class: className = '' } = Astro.props;
       
       {tags.map((tag) => (
         <button 
-          class="tag-filter px-3 py-1 lg:py-2 rounded-md text-xs lg:text-sm text-slate-300 hover:bg-orange-900/30 hover:text-orange-300 transition-colors lg:w-full lg:text-left"
+          class="tag-filter px-3 py-1 lg:py-2 rounded-md text-xs lg:text-sm text-text-secondary hover:bg-earth/30 hover:text-warm transition-colors lg:w-full lg:text-left"
           data-tag={tag}
         >
           #{tag}
@@ -49,12 +49,12 @@ const { tags, class: className = '' } = Astro.props;
         
         // Update button states
         tagButtons.forEach(btn => {
-          btn.classList.remove('active', 'bg-emerald-600', 'bg-emerald-600/80', 'lg:bg-emerald-600', 'text-emerald-100');
-          btn.classList.add('text-slate-300');
+          btn.classList.remove('active', 'bg-bright', 'bg-bright/80', 'lg:bg-bright', 'text-primary');
+          btn.classList.add('text-text-secondary');
         });
         
-        this.classList.remove('text-slate-300');
-        this.classList.add('active', 'bg-emerald-600', 'text-emerald-100');
+        this.classList.remove('text-text-secondary');
+        this.classList.add('active', 'bg-bright', 'text-primary');
         
         // Filter posts
         postCards.forEach(card => {
