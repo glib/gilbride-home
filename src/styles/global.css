@@ -2,19 +2,19 @@
 
 /* Universal prose styling for content areas */
 .prose-universal {
-  @apply text-slate-300 text-lg sm:text-xl leading-relaxed prose prose-lg prose-invert max-w-none;
-  @apply prose-headings:text-slate-100 prose-headings:font-heading;
-  @apply prose-a:text-emerald-400 prose-a:no-underline hover:prose-a:text-emerald-300;
-  @apply prose-code:text-slate-200 prose-code:bg-orange-900/30 prose-code:px-1 prose-code:py-0.5 prose-code:rounded;
-  @apply prose-pre:bg-slate-900 prose-pre:text-slate-100;
-  @apply prose-strong:text-slate-200;
-  @apply prose-ul:text-slate-300 prose-li:text-slate-300;
+  @apply text-text-primary text-base leading-relaxed prose prose-base prose-invert max-w-none;
+  @apply prose-headings:text-text-primary prose-headings:font-heading;
+  @apply prose-a:text-highlight prose-a:no-underline hover:prose-a:text-highlight/80;
+  @apply prose-code:text-text-primary prose-code:bg-warm/30 prose-code:px-1 prose-code:py-0.5 prose-code:rounded;
+  @apply prose-pre:bg-secondary prose-pre:text-text-primary;
+  @apply prose-strong:text-text-primary;
+  @apply prose-ul:text-text-primary prose-li:text-text-primary;
   @apply prose-img:rounded-lg prose-img:shadow-lg;
 }
 
 /* Image captions styling */
 .prose-universal img + em {
-  @apply block text-center text-slate-400 text-sm mt-1 mb-4 italic;
+  @apply block text-center text-text-muted text-sm mt-1 mb-4 italic;
 }
 
 /* Remove bottom margin from images when followed by captions */
@@ -24,18 +24,18 @@
 
 /* Universal card styling */
 .card-universal {
-  @apply bg-tertiary/60 rounded-lg border border-accent/40 p-4 sm:p-6;
+  @apply bg-secondary rounded-lg border border-tertiary p-4 sm:p-6;
 }
 
 /* Universal button styling */
 .btn-primary {
   @apply inline-flex items-center px-4 py-2 rounded-md font-medium transition-colors;
-  @apply bg-emerald-600 text-emerald-100 hover:bg-emerald-500;
+  @apply bg-highlight text-primary hover:bg-highlight/80;
 }
 
 .btn-secondary {
   @apply inline-flex items-center px-4 py-2 rounded-md font-medium transition-colors;
-  @apply bg-slate-700 text-slate-300 hover:bg-slate-600 hover:text-slate-200;
+  @apply bg-secondary text-text-primary hover:bg-tertiary hover:text-text-primary;
 }
 
 /* Universal layout spacing */
@@ -54,11 +54,11 @@
 
 /* Enhanced button variants */
 .btn-link {
-  @apply inline-flex items-center text-emerald-400 hover:text-emerald-300 font-medium transition-colors;
+  @apply inline-flex items-center text-highlight hover:text-highlight/80 font-medium transition-colors;
 }
 
 .btn-link-with-arrow {
-  @apply inline-flex items-center text-emerald-400 hover:text-emerald-300 font-medium transition-colors;
+  @apply inline-flex items-center text-highlight hover:text-highlight/80 font-medium transition-colors;
 }
 
 .btn-link-arrow {
@@ -67,40 +67,40 @@
 
 /* Universal heading styles */
 .heading-xl {
-  @apply text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-slate-100 leading-tight;
+  @apply text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-heading font-semibold text-text-primary leading-tight;
   letter-spacing: -0.02em;
 }
 
 .heading-lg {
-  @apply text-2xl sm:text-3xl font-heading font-bold text-slate-100 leading-tight;
+  @apply text-2xl sm:text-3xl font-heading font-semibold text-text-primary leading-tight;
 }
 
 .heading-md {
-  @apply text-xl sm:text-2xl font-heading font-semibold text-slate-100;
+  @apply text-xl sm:text-2xl font-heading font-medium text-text-primary;
 }
 
 .heading-sm {
-  @apply text-lg font-heading font-medium text-slate-200;
+  @apply text-lg font-heading font-medium text-text-primary;
 }
 
-/* Universal text colors */
+/* Universal text colors - using semantic tokens */
 .text-primary {
-  @apply text-slate-100;
+  @apply text-text-primary;
 }
 
 .text-secondary {
-  @apply text-slate-300;
+  @apply text-text-primary;
 }
 
 .text-muted {
-  @apply text-slate-400;
+  @apply text-text-muted;
 }
 
 .text-accent {
-  @apply text-emerald-400;
+  @apply text-highlight;
 }
 
 .text-accent-hover {
-  @apply text-emerald-400 hover:text-emerald-300 transition-colors;
+  @apply text-highlight hover:text-highlight/80 transition-colors;
 }
 

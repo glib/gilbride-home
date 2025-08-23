@@ -5,19 +5,16 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Deep Forest Floor Theme - Inspired by woodland shadows and earth
-        primary: "#0f1410", // Deep forest shadow - very dark desaturated green-black
-        secondary: "#1a1f1b", // Tree bark in shadow - slightly lighter charcoal-green  
-        tertiary: "#252b26", // Moss on bark - muted dark olive
-        accent: "#3a4239", // Weathered wood - medium desaturated green-brown
-        highlight: "#5a6b56", // Lichen on stone - muted sage green
-        bright: "#7d8f76", // Fresh moss - soft sage green
-        warm: "#8b7355", // Dried oak leaves - warm brown with green undertones
-        earth: "#6b5d42", // Rich soil - deep brown
+        // Professional Dark Forest Theme - Improved contrast
+        primary: "#0f1410", // Deep forest shadow - main background
+        secondary: "#1a211b", // 15% lighter than primary - cards/header (better contrast)
+        tertiary: "#252d26", // Border color - clear differentiation
+        accent: "#2d352e", // Subtle accent backgrounds
+        highlight: "#7fb069", // Brighter sage green - links/highlights
+        warm: "#8b7355", // Warm earth tone for tags
         text: {
-          primary: "#e6e8e4", // Pale lichen - very light warm gray-green
-          secondary: "#c4c9bf", // Weathered stone - medium gray-green
-          muted: "#9ca196", // Dried grass - muted olive-gray
+          primary: "#f0f2ef", // Clean white with slight warm tint - all text
+          muted: "#9ca196", // Muted for very subtle text only
         }
       },
       fontFamily: {
@@ -33,7 +30,7 @@ export default {
             fontSize: "1.125rem",
             h1: {
               fontFamily: "Montserrat Variable, sans-serif",
-              fontWeight: "800",
+              fontWeight: "700",
               fontSize: "2.5rem",
               lineHeight: "1.2",
               marginBottom: "1rem",
@@ -41,7 +38,7 @@ export default {
             },
             h2: {
               fontFamily: "Montserrat Variable, sans-serif",
-              fontWeight: "700",
+              fontWeight: "600",
               fontSize: "2rem",
               lineHeight: "1.3",
               marginTop: "2rem",
@@ -50,7 +47,7 @@ export default {
             },
             h3: {
               fontFamily: "Montserrat Variable, sans-serif",
-              fontWeight: "700",
+              fontWeight: "600",
               fontSize: "1.5rem",
               lineHeight: "1.4",
               marginTop: "1.5rem",

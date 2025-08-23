@@ -7,13 +7,17 @@ import PostCard from '../components/PostCard.astro';
 import FilterSidebar from '../components/FilterSidebar.astro';
 import { getCollection } from 'astro:content';
 import { formatDate } from '../utils/date';
+import { createPostSummary } from '../utils/contentSummary';
+import { calculateReadingTime } from '../utils/readingTime';
 
 const posts = await Promise.all(
   (await getCollection('blog', ({ data }) => import.meta.env.PROD ? !data.draft : true))
     .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
     .map(async (post) => {
       const { Content } = await post.render();
-      return { ...post, Content };
+      const { summary } = createPostSummary(post.body, 400);
+      const readingTime = calculateReadingTime(post.body);
+      return { ...post, Content, summary, readingTime };
     })
 );
 
@@ -40,7 +44,8 @@ const allTags = [...new Set(posts.flatMap(post => post.data.tags || []))].sort()
           tags={post.data.tags}
           youtubeId={post.data.youtubeId}
           heroImage={post.data.heroImage}
-          Content={post.Content}
+          summary={post.summary}
+          readingTime={post.readingTime}
         />
       ))}
       </div>

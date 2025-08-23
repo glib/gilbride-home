@@ -1,6 +1,7 @@
 ---
 import Tag from './Tag.astro';
 import { formatDate } from '../utils/date';
+import { formatReadingTime } from '../utils/readingTime';
 
 export interface Props {
   /**
@@ -16,23 +17,43 @@ export interface Props {
    */
   tags?: string[];
   /**
+   * Author name (optional)
+   */
+  author?: string;
+  /**
+   * Reading time in minutes (optional)
+   */
+  readingTime?: number;
+  /**
    * Additional CSS classes to apply
    */
   class?: string;
 }
 
-const { pubDate, updatedDate, tags = [], class: className = '' } = Astro.props;
+const { pubDate, updatedDate, tags = [], author = 'Liam Gilbride', readingTime, class: className = '' } = Astro.props;
 ---
 
-<div class={`flex items-center gap-3 text-sm text-text-muted ${className}`}>
+<div class={`flex flex-wrap items-center gap-3 text-sm text-text-primary ${className}`}>
+  <span class="font-medium">By {author}</span>
+  
+  <span>•</span>
   <time datetime={pubDate.toISOString()}>
     {formatDate(pubDate)}
   </time>
   
+  {readingTime && (
+    <>
+      <span>•</span>
+      <span class="text-text-primary">
+        {formatReadingTime(readingTime)}
+      </span>
+    </>
+  )}
+  
   {updatedDate && (
     <>
       <span>•</span>
-      <span class="text-text-muted">
+      <span class="text-text-primary">
         Updated {formatDate(updatedDate)}
       </span>
     </>

@@ -1,6 +1,7 @@
 ---
 import MediaThumbnail from './MediaThumbnail.astro';
 import PostMetadata from './PostMetadata.astro';
+import { marked } from 'marked';
 
 export interface Props {
   /**
@@ -28,9 +29,13 @@ export interface Props {
    */
   heroImage?: string;
   /**
-   * Post content (Astro component)
+   * Post summary (markdown string)
    */
-  Content: any;
+  summary?: string;
+  /**
+   * Reading time in minutes
+   */
+  readingTime?: number;
   /**
    * Additional CSS classes to apply
    */
@@ -44,7 +49,8 @@ const {
   tags = [], 
   youtubeId, 
   heroImage, 
-  Content,
+  summary,
+  readingTime,
   class: className = '' 
 } = Astro.props;
 
@@ -72,15 +78,14 @@ const postUrl = `/blog/${slug}/`;
     <PostMetadata 
       pubDate={pubDate}
       tags={tags}
+      readingTime={readingTime}
     />
     
-    <div class="prose-universal">
-      <Content />
-    </div>
-    
-    <div class="mt-4 text-text-muted text-sm italic">
-      Continue reading for more details...
-    </div>
+    {summary && (
+      <div class="prose-universal">
+        <div set:html={marked(summary)} />
+      </div>
+    )}
     
     <div class="pt-2">
       <a
