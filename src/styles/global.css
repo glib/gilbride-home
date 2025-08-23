@@ -24,7 +24,7 @@
 
 /* Universal card styling */
 .card-universal {
-  @apply bg-slate-800/50 rounded-lg border border-slate-700/50 p-4 sm:p-6;
+  @apply bg-tertiary/60 rounded-lg border border-accent/40 p-4 sm:p-6;
 }
 
 /* Universal button styling */
@@ -49,7 +49,7 @@
 
 /* Universal accent styling */
 .accent-border {
-  @apply border-l-4 border-l-emerald-500;
+  @apply border-l-4 border-l-highlight;
 }
 
 /* Enhanced button variants */
