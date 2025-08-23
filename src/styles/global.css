@@ -2,7 +2,7 @@
 
 /* Universal prose styling for content areas */
 .prose-universal {
-  @apply text-text-primary text-base leading-relaxed prose prose-base prose-invert max-w-none;
+  @apply text-text-primary text-lg leading-relaxed prose prose-lg prose-invert max-w-none;
   @apply prose-headings:text-text-primary prose-headings:font-heading;
   @apply prose-a:text-highlight prose-a:no-underline hover:prose-a:text-highlight/80;
   @apply prose-code:text-text-primary prose-code:bg-warm/30 prose-code:px-1 prose-code:py-0.5 prose-code:rounded;

@@ -18,7 +18,7 @@ export default {
         }
       },
       fontFamily: {
-        sans: ["Radley", ...defaultTheme.fontFamily.serif],
+        sans: ["PT Serif", ...defaultTheme.fontFamily.serif],
         heading: ["Montserrat Variable", ...defaultTheme.fontFamily.sans],
       },
       typography: {

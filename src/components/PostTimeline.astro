@@ -29,51 +29,62 @@ const timelinePosts = posts.slice(0, limit);
 ---
 
 <aside class={`w-full h-fit ${className}`}>
-  <div class="bg-secondary rounded-lg p-4 lg:p-6 border border-tertiary">
-    <h3 class="text-lg font-heading font-semibold text-text-primary mb-4 pb-3 border-b border-tertiary">
+  <!-- Timeline Header -->
+  <div class="mb-6">
+    <h3 class="text-lg font-heading font-semibold text-text-primary">
       Latest Posts
     </h3>
+  </div>
+  
+  <!-- Timeline Container -->
+  <div class="timeline-container relative">
+    <!-- Timeline Line -->
+    <div class="absolute left-6 top-0 bottom-0 w-0.5 bg-highlight/30"></div>
     
-    <div class="space-y-4">
-      {timelinePosts.map((post) => {
+    <div class="space-y-6">
+      {timelinePosts.map((post, index) => {
         const postUrl = `/blog/${post.slug}/`;
         return (
-          <article class="group">
+          <article class="timeline-item group relative">
             <a href={postUrl} class="block">
-              <div class="flex gap-3">
-                <!-- Thumbnail -->
-                <div class="flex-shrink-0 w-16 h-16 bg-tertiary rounded-lg overflow-hidden">
-                  {post.data.youtubeId ? (
-                    <img 
-                      src={`https://img.youtube.com/vi/${post.data.youtubeId}/mqdefault.jpg`}
-                      alt={post.data.title}
-                      class="w-full h-full object-cover transition-transform group-hover:scale-105"
-                      loading="lazy"
-                    />
-                  ) : post.data.heroImage ? (
-                    <img 
-                      src={post.data.heroImage}
-                      alt={post.data.title}
-                      class="w-full h-full object-cover transition-transform group-hover:scale-105"
-                      loading="lazy"
-                    />
-                  ) : (
-                    <div class="w-full h-full bg-accent flex items-center justify-center">
-                      <svg class="w-6 h-6 text-text-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9.5a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
-                      </svg>
-                    </div>
-                  )}
+              <div class="flex items-start gap-4">
+                <!-- Timeline Node -->
+                <div class="relative z-10 flex-shrink-0">
+                  <div class="w-12 h-12 bg-tertiary rounded-full overflow-hidden ring-4 ring-primary group-hover:ring-highlight/40 transition-all duration-200">
+                    {post.data.youtubeId ? (
+                      <img 
+                        src={`https://img.youtube.com/vi/${post.data.youtubeId}/mqdefault.jpg`}
+                        alt={post.data.title}
+                        class="w-full h-full object-cover transition-transform group-hover:scale-105"
+                        loading="lazy"
+                      />
+                    ) : post.data.heroImage ? (
+                      <img 
+                        src={post.data.heroImage}
+                        alt={post.data.title}
+                        class="w-full h-full object-cover transition-transform group-hover:scale-105"
+                        loading="lazy"
+                      />
+                    ) : (
+                      <div class="w-full h-full bg-accent flex items-center justify-center">
+                        <svg class="w-5 h-5 text-text-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9.5a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
+                        </svg>
+                      </div>
+                    )}
+                  </div>
+                  <!-- Timeline Connector Dot -->
+                  <div class="absolute top-1/2 -right-1 w-2 h-2 bg-highlight rounded-full transform -translate-y-1/2 opacity-60 group-hover:opacity-100 group-hover:scale-125 transition-all duration-200"></div>
                 </div>
                 
                 <!-- Content -->
-                <div class="flex-1 min-w-0">
-                  <h4 class="text-sm font-heading font-medium text-text-primary line-clamp-2 group-hover:text-highlight transition-colors leading-tight mb-1">
+                <div class="flex-1 min-w-0 pt-1">
+                  <h4 class="text-sm font-heading font-medium text-text-primary line-clamp-2 group-hover:text-highlight transition-colors leading-tight mb-2">
                     {post.data.title}
                   </h4>
                   <time 
                     datetime={post.data.pubDate.toISOString()}
-                    class="text-xs text-text-muted font-heading"
+                    class="text-xs text-text-muted font-heading opacity-80"
                   >
                     {formatDate(post.data.pubDate)}
                   </time>
@@ -85,16 +96,25 @@ const timelinePosts = posts.slice(0, limit);
       })}
     </div>
     
-    <div class="mt-6 pt-4 border-t border-tertiary">
-      <a 
-        href="/posts" 
-        class="inline-flex items-center text-sm font-heading font-medium text-highlight hover:text-highlight/80 transition-colors"
-      >
-        View all posts
-        <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-        </svg>
-      </a>
+    <!-- View All Link -->
+    <div class="mt-8 relative z-10">
+      <div class="flex items-center gap-3">
+        <!-- Timeline End Node -->
+        <div class="w-12 h-12 bg-secondary/50 rounded-full border-2 border-highlight/30 flex items-center justify-center">
+          <svg class="w-5 h-5 text-highlight" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/>
+          </svg>
+        </div>
+        <a 
+          href="/posts" 
+          class="inline-flex items-center text-sm font-heading font-medium text-highlight hover:text-highlight/80 transition-colors"
+        >
+          View all posts
+          <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+          </svg>
+        </a>
+      </div>
     </div>
   </div>
 </aside>
