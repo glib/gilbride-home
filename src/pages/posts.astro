@@ -1,0 +1,151 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Container from '../components/Container.astro';
+import CompactPostCard from '../components/CompactPostCard.astro';
+import FilterSidebar from '../components/FilterSidebar.astro';
+import { getCollection } from 'astro:content';
+import { calculateReadingTime } from '../utils/readingTime';
+
+const posts = await Promise.all(
+  (await getCollection('blog', ({ data }) => import.meta.env.PROD ? !data.draft : true))
+    .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+    .map(async (post) => {
+      const readingTime = calculateReadingTime(post.body);
+      return { ...post, readingTime };
+    })
+);
+
+// Get all unique tags
+const allTags = [...new Set(posts.flatMap(post => post.data.tags || []))].sort();
+---
+
+<BaseLayout 
+  title="Posts - Work From Loam"
+  description="Browse all posts about remote work, game development, and mountain biking adventures."
+>
+  <Header currentPath="/posts" />
+
+  <main>
+    <Container class="py-8">
+      <!-- Page Header -->
+      <div class="mb-8">
+        <h1 class="text-3xl sm:text-4xl font-heading font-bold text-text-primary mb-4">
+          All Posts
+        </h1>
+        <p class="text-lg text-text-primary leading-relaxed">
+          Explore our complete collection of posts about remote work, game development, and mountain biking. 
+          Use the filters to find exactly what you're looking for.
+        </p>
+      </div>
+
+      <div class="flex flex-col lg:flex-row gap-8">
+        <!-- Posts Grid -->
+        <div class="flex-1">
+          <!-- Search Bar (Future Enhancement) -->
+          <div class="mb-6">
+            <div class="relative">
+              <input 
+                type="text" 
+                placeholder="Search posts... (coming soon)"
+                disabled
+                class="w-full px-4 py-3 bg-secondary border border-tertiary rounded-lg text-text-primary placeholder-text-muted font-heading opacity-50 cursor-not-allowed"
+              />
+              <svg class="absolute right-3 top-3.5 h-5 w-5 text-text-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+              </svg>
+            </div>
+          </div>
+          
+          <!-- Posts Count -->
+          <div class="flex justify-between items-center mb-6">
+            <p class="text-sm text-text-primary font-heading">
+              Showing <span class="font-semibold">{posts.length}</span> posts
+            </p>
+            
+            <!-- Sort Options (Future Enhancement) -->
+            <div class="text-sm text-text-muted">
+              <span class="font-heading">Sort by:</span>
+              <select disabled class="ml-2 bg-secondary border border-tertiary rounded px-2 py-1 text-text-primary opacity-50 cursor-not-allowed">
+                <option>Latest First</option>
+                <option>Oldest First</option>
+                <option>Most Popular</option>
+              </select>
+            </div>
+          </div>
+          
+          <!-- Posts Grid -->
+          <div class="space-y-6">
+            {posts.map((post) => (
+              <CompactPostCard 
+                slug={post.slug}
+                title={post.data.title}
+                pubDate={post.data.pubDate}
+                tags={post.data.tags}
+                youtubeId={post.data.youtubeId}
+                heroImage={post.data.heroImage}
+                readingTime={post.readingTime}
+              />
+            ))}
+          </div>
+          
+          {posts.length === 0 && (
+            <div class="text-center py-12">
+              <div class="text-6xl mb-4">📝</div>
+              <h3 class="text-xl font-heading font-semibold text-text-primary mb-2">No posts found</h3>
+              <p class="text-text-primary">Try adjusting your filters or check back later.</p>
+            </div>
+          )}
+        </div>
+
+        <!-- Filter Sidebar -->
+        <FilterSidebar tags={allTags} />
+      </div>
+    </Container>
+  </main>
+
+  <Footer />
+</BaseLayout>
+
+<script>
+  // Enhanced filtering functionality for compact cards
+  document.addEventListener('DOMContentLoaded', function() {
+    const tagButtons = document.querySelectorAll('.tag-filter');
+    const postCards = document.querySelectorAll('.compact-post-card');
+    const postsCount = document.querySelector('span.font-semibold');
+    
+    tagButtons.forEach(button => {
+      button.addEventListener('click', function() {
+        const selectedTag = this.dataset.tag;
+        let visibleCount = 0;
+        
+        // Update button states
+        tagButtons.forEach(btn => {
+          btn.classList.remove('active', 'bg-highlight', 'bg-highlight/80', 'lg:bg-highlight', 'text-primary');
+          btn.classList.add('text-text-primary');
+        });
+        
+        this.classList.remove('text-text-primary');
+        this.classList.add('active', 'bg-highlight', 'text-primary');
+        
+        // Filter posts
+        postCards.forEach(card => {
+          const postTags = JSON.parse(card.dataset.tags);
+          
+          if (selectedTag === 'all' || postTags.includes(selectedTag)) {
+            card.style.display = 'block';
+            visibleCount++;
+          } else {
+            card.style.display = 'none';
+          }
+        });
+        
+        // Update count
+        if (postsCount) {
+          postsCount.textContent = visibleCount.toString();
+        }
+      });
+    });
+  });
+</script>

@@ -31,6 +31,11 @@ const { currentPath = "/" } = Astro.props;
         <NavLink 
           href="/" 
           currentPath={currentPath}
+          text="Home"
+        />
+        <NavLink 
+          href="/posts" 
+          currentPath={currentPath}
           text="Posts"
         />
         <NavLink 
