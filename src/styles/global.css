@@ -14,7 +14,12 @@
 
 /* Image captions styling */
 .prose-universal img + em {
-  @apply block text-center text-slate-400 text-sm mt-2 mb-4 italic;
+  @apply block text-center text-slate-400 text-sm mt-1 mb-4 italic;
+}
+
+/* Remove bottom margin from images when followed by captions */
+.prose-universal img:has(+ em) {
+  @apply mb-0;
 }
 
 /* Universal card styling */
