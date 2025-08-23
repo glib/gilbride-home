@@ -3,7 +3,6 @@ title: "Essential Remote Work Tools for Developers in 2024"
 description: "A comprehensive guide to the tools, apps, and hardware that keep distributed development teams productive and connected."
 pubDate: 2024-01-22
 heroImage: "https://images.unsplash.com/photo-1586717799252-bd134ad00e26?w=800&h=400&fit=crop&crop=center"
-draft: true
 tags: ["remote-work", "productivity", "tools", "developer-tools"]
 ---
 

@@ -8,7 +8,8 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "new-post": "node scripts/new-post.js"
+    "new-post": "node scripts/new-post.js",
+    "drafts": "node scripts/manage-drafts.js"
   },
   "dependencies": {
     "@astrojs/mdx": "^2.0.0",

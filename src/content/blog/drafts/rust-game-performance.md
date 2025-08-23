@@ -3,7 +3,6 @@ title: "Why I Switched from C++ to Rust for Game Development"
 description: "A deep dive into performance, memory safety, and developer experience comparing Rust and C++ for indie game development."
 pubDate: 2024-01-30
 youtubeId: "GtQdIYUtAHg"
-draft: true
 tags: ["rust", "game-dev", "performance", "programming"]
 ---
 

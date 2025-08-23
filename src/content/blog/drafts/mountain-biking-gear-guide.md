@@ -3,7 +3,6 @@ title: "Essential Mountain Biking Gear for Developer Budgets"
 description: "A practical guide to mountain biking gear that balances performance, safety, and cost-effectiveness for tech professionals new to the sport."
 pubDate: 2023-11-28
 heroImage: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=400&fit=crop&crop=center"
-draft: true
 tags: ["mountain-biking", "gear-guide", "beginner-guide", "equipment"]
 ---
 

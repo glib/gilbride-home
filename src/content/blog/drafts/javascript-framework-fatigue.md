@@ -3,7 +3,6 @@ title: "JavaScript Framework Fatigue: Finding Stability in the Chaos"
 description: "How I learned to stop worrying about the latest JavaScript framework and focus on fundamentals that actually matter."
 pubDate: 2023-12-20
 youtubeId: "9bZkp7q19f0"
-draft: true
 tags: ["javascript", "frameworks", "web-development", "career-advice"]
 ---
 

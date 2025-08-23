@@ -3,7 +3,6 @@ title: "Trail Therapy: How Mountain Biking Rewired My Developer Brain"
 description: "Discovering mindfulness and mental clarity through mountain biking after years of burnout in the tech industry."
 pubDate: 2024-02-28
 youtubeId: "dQw4w9WgXcQ"
-draft: true
 tags: ["mountain-biking", "mental-health", "mindfulness", "work-life-balance"]
 ---
 

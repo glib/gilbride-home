@@ -3,7 +3,6 @@ title: "What Trail Building Taught Me About Game Design"
 description: "Lessons from constructing mountain bike trails that transformed how I approach level design and player experience."
 pubDate: 2024-01-08
 youtubeId: "jNQXAC9IVRw"
-draft: true
 tags: ["game-design", "mountain-biking", "level-design", "user-experience"]
 ---
 

@@ -3,7 +3,6 @@ title: "Code Reviews: Beyond Finding Bugs"
 description: "How to conduct code reviews that improve code quality, share knowledge, and build stronger development teams."
 pubDate: 2023-09-18
 youtubeId: "sTX0UEplF54"
-draft: true
 tags: ["code-review", "team-development", "best-practices", "collaboration"]
 ---
 

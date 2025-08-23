@@ -3,7 +3,6 @@ title: "From 9-to-5 to Location Independence: My Freelance Developer Journey"
 description: "How I transitioned from a corporate software job to freelancing while maintaining financial stability and work-life balance."
 pubDate: 2024-12-15
 heroImage: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&h=400&fit=crop&crop=center"
-draft: true
 tags: ["freelance", "remote-work", "career-transition", "work-life-balance"]
 ---
 

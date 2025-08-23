@@ -2,7 +2,6 @@
 title: "Buying back time"
 description: "Durability, ease of maintenence and user servicability over everthing else."
 pubDate: 2025-08-18
-draft: true
 tags: ["mountain-biking", "components"]
 # youtubeId: "VIDEO_ID"  # Uncomment and add YouTube video ID if needed
 heroImage: "/src/images/buying-back-time.jpg" # Uncomment and add hero image path if needed

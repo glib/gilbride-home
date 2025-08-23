@@ -3,7 +3,6 @@ title: "Marketing an Indie Game from the Trail: Social Media Strategies That Act
 description: "How I built a gaming audience of 50K followers using authentic content creation while maintaining my mountain biking lifestyle."
 pubDate: 2024-02-14
 heroImage: "https://images.unsplash.com/photo-1551698618-1dfe5d97d256?w=800&h=400&fit=crop&crop=center"
-draft: true
 tags: ["indie-game", "marketing", "social-media", "content-creation"]
 ---
 

@@ -3,7 +3,6 @@ title: "Productivity Systems That Actually Work for Developers"
 description: "After trying every productivity method from GTD to Pomodoro, here's what actually helps developers manage complex projects and maintain focus."
 pubDate: 2023-10-30
 heroImage: "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=800&h=400&fit=crop&crop=center"
-draft: true
 tags: ["productivity", "time-management", "developer-tools", "focus"]
 ---
 

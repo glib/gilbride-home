@@ -3,7 +3,14 @@ import { getCollection } from 'astro:content';
 import BlogPost from '../../layouts/BlogPost.astro';
 
 export async function getStaticPaths() {
-  const posts = await getCollection('blog', ({ data }) => import.meta.env.PROD ? !data.draft : true);
+  // In development, include drafts. In production, exclude them
+  const posts = await getCollection('blog', ({ slug }) => {
+    if (import.meta.env.DEV) {
+      return true; // Show all posts including drafts in development
+    }
+    return !slug.startsWith('drafts/'); // Exclude drafts in production
+  });
+  
   return posts.map((post) => ({
     params: { slug: post.slug },
     props: post,

@@ -39,7 +39,7 @@ function generateBlogPost(title) {
   const slug = createSlug(title);
   const date = getCurrentDate();
   const filename = `${slug}.md`;
-  const filePath = path.join(__dirname, '..', 'src', 'content', 'blog', filename);
+  const filePath = path.join(__dirname, '..', 'src', 'content', 'blog', 'drafts', filename);
 
   // Check if file already exists
   if (fs.existsSync(filePath)) {
@@ -51,7 +51,6 @@ function generateBlogPost(title) {
 title: "${title}"
 description: "Add a brief description of your post here."
 pubDate: ${date}
-draft: true
 tags: ["tag1", "tag2"]
 # youtubeId: "VIDEO_ID"  # Uncomment and add YouTube video ID if needed
 # heroImage: "/path/to/image.jpg"  # Uncomment and add hero image path if needed
@@ -73,7 +72,7 @@ Wrap up your thoughts here.
   try {
     fs.writeFileSync(filePath, template, 'utf8');
     console.log(`✅ Successfully created new blog post!`);
-    console.log(`📄 File: src/content/blog/${filename}`);
+    console.log(`📄 File: src/content/blog/drafts/${filename}`);
     console.log(`📝 Title: ${title}`);
     console.log(`📅 Date: ${date}`);
     console.log(`🏷️  Slug: ${slug}`);
@@ -81,7 +80,7 @@ Wrap up your thoughts here.
     console.log('Next steps:');
     console.log('1. Edit the post content and frontmatter');
     console.log('2. Add appropriate tags');
-    console.log('3. Set draft: false when ready to publish');
+    console.log('3. Use "npm run drafts publish <filename>" to publish when ready');
     console.log('4. Optionally add youtubeId or heroImage');
   } catch (error) {
     console.error('❌ Error creating blog post:', error.message);

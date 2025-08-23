@@ -9,7 +9,12 @@ import { getCollection } from 'astro:content';
 import { calculateReadingTime } from '../utils/readingTime';
 
 const posts = await Promise.all(
-  (await getCollection('blog', ({ data }) => import.meta.env.PROD ? !data.draft : true))
+  (await getCollection('blog', ({ slug }) => {
+    if (import.meta.env.DEV) {
+      return true; // Show all posts including drafts in development
+    }
+    return !slug.startsWith('drafts/'); // Exclude drafts in production
+  }))
     .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
     .map(async (post) => {
       const readingTime = calculateReadingTime(post.body);
