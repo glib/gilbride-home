@@ -92,7 +92,7 @@ const postUrl = slug.startsWith('drafts/') ? `/blog/${slug}/` : `/blog/${slug}/`
     />
     
     {summary && (
-      <div class="prose-universal">
+      <div class="prose-universal overflow-hidden">
         <div set:html={marked(summary)} />
       </div>
     )}

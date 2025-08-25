@@ -1,7 +1,7 @@
 ---
 import Analytics from '@vercel/analytics/astro';
 import '../styles/global.css';
-import '@fontsource/lora';
+import '@fontsource/source-serif-4';
 import '@fontsource-variable/montserrat';
 
 export interface Props {
@@ -39,7 +39,7 @@ const { title, description, image } = Astro.props;
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={image || '/og-image.jpg'} />
   </head>
-  <body class="bg-primary text-text-primary font-sans antialiased">
+  <body class="bg-primary text-text-primary font-serif antialiased">
     <slot />
     <Analytics />
   </body>

@@ -18,7 +18,8 @@ export default {
         }
       },
       fontFamily: {
-        sans: ["Lora", ...defaultTheme.fontFamily.serif],
+        sans: defaultTheme.fontFamily.sans,
+        serif: ["Source Serif 4", ...defaultTheme.fontFamily.serif],
         heading: ["Montserrat Variable", ...defaultTheme.fontFamily.sans],
       },
       typography: {
