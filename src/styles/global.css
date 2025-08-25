@@ -113,9 +113,17 @@ input, textarea, select {
   grid-column: 1 / -1;
 }
 
-/* Image captions styling */
+/* Image captions styling - constrained to text column width */
+.prose-universal p:has(img) em,
 .prose-universal img + em {
-  @apply block text-center text-text-muted text-sm mt-1 mb-4 italic;
+  @apply block text-center text-text-muted italic;
+  font-size: 18px; /* ~85% of 21px body text - standard caption convention */
+  margin-top: 0.5rem; /* 8px - tighter spacing */
+  margin-bottom: 1.5rem; /* 24px - consistent with paragraph spacing */
+  line-height: 1.4; /* Slightly tighter than body text */
+  max-width: 65ch; /* Match body text width constraint */
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* Remove bottom margin from images when followed by captions */
